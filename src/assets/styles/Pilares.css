@@ -1,7 +1,6 @@
+
 /* ========================================
    SECCIÓN PILARES
-   Mismas clases que tu HTML/JSX actual.
-   Usa --brand de hero.css (con respaldo).
 ======================================== */
 
 .pilares {
@@ -12,13 +11,15 @@
   grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
   width: 100%;
   min-height: clamp(420px, 42vw, 560px);
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   color: #fff;
-  background-color: var(--pilares-bg);
+  background: var(--pilares-bg);
 }
 
 /* ========================================
-   COLUMNA IZQUIERDA: IMAGEN + TÍTULO
+   IMAGEN Y TÍTULO
 ======================================== */
 
 .pilares-photo {
@@ -26,81 +27,87 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  background-color: #222;
+  isolation: isolate;
+  background: #222;
 }
 
 .pilares-img {
   position: absolute;
   inset: 0;
-  z-index: 0;
-
+  z-index: -2;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  filter: brightness(52%);
+  object-position: center center;
+  filter: brightness(55%);
 }
 
-/* Degradado para que el título resalte y la foto
-   se funda con el panel de texto */
 .pilares-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    rgba(48, 48, 47, 0) 60%,
-    rgba(48, 48, 47, 0.55) 100%
+    rgba(20, 22, 18, 0.05) 0%,
+    rgba(20, 22, 18, 0.2) 65%,
+    rgba(48, 48, 47, 0.75) 100%
   );
 }
 
 .photo-title {
   position: relative;
   z-index: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  padding: 24px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 24px 16px;
   color: #fff;
   text-align: center;
-  line-height: 1.05;
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  line-height: 1.15;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.65);
 }
 
 .photo-title span {
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  display: block;
+  max-width: 100%;
+  font-size: clamp(22px, 2.6vw, 34px);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 .photo-title strong {
-  margin-top: 6px;
-  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  display: block;
+  max-width: 100%;
+  margin-top: 8px;
+  font-size: clamp(30px, 4.2vw, 54px);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
 }
 
 .photo-title i {
   display: block;
-  width: clamp(48px, 5vw, 72px);
-  height: 4px;
-  margin-top: 14px;
-  border-radius: 4px;
-  background-color: var(--pilares-brand);
+  flex-shrink: 0;
+  width: 90px;
+  height: 7px;
+  margin: 26px auto 0;
+  border-radius: 10px;
+  background: var(--pilares-brand);
 }
 
 /* ========================================
-   COLUMNA DERECHA: CONTENIDO
+   CONTENIDO DERECHO
 ======================================== */
 
 .pilares-copy {
@@ -108,26 +115,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   min-width: 0;
   padding: clamp(32px, 5vw, 72px) clamp(24px, 5vw, 80px);
-
   color: #fff;
   text-align: center;
-  background-color: var(--pilares-bg);
+  background: var(--pilares-bg);
 }
-
-/* ========================================
-   TEXTOS
-======================================== */
 
 .pilares-copy p {
   width: 100%;
   max-width: 34rem;
   margin: 0;
-
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  font-size: clamp(15px, 1.15vw, 18px);
   font-weight: 400;
   line-height: 1.65;
   text-wrap: pretty;
@@ -139,11 +139,11 @@
 }
 
 .pilares-copy .pilares-subtitle {
-  margin-top: clamp(18px, 2.5vw, 28px);
+  margin-top: 24px;
 }
 
 /* ========================================
-   LISTA DE LOS TRES PILARES
+   LISTA DE PILARES
 ======================================== */
 
 .pillar-list {
@@ -151,10 +151,9 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-
   width: 100%;
-  gap: clamp(20px, 4vw, 56px);
-  margin: clamp(28px, 4vw, 44px) 0;
+  gap: clamp(20px, 3vw, 44px);
+  margin: 36px 0;
   padding: 0;
   list-style: none;
 }
@@ -165,52 +164,36 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-
   color: var(--pilares-brand);
 }
-
-/* ========================================
-   CÍRCULOS DE LOS ÍCONOS
-======================================== */
 
 .pillar-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: clamp(56px, 5.4vw, 76px);
   height: clamp(56px, 5.4vw, 76px);
   flex-shrink: 0;
-
   border: 2px solid var(--pilares-brand);
   border-radius: 50%;
-
   color: var(--pilares-brand);
-  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-size: clamp(25px, 2.6vw, 35px);
   line-height: 1;
-
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .pillar:hover .pillar-icon {
-  background-color: var(--pilares-brand);
+  background: var(--pilares-brand);
   color: #fff;
 }
 
 .pillar small {
   color: var(--pilares-brand);
-  font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
+  line-height: 1.3;
   text-align: center;
 }
-
-/* ========================================
-   PÁRRAFO INFERIOR
-======================================== */
 
 .pilares-copy .pilares-footer {
   max-width: 36rem;
@@ -224,58 +207,135 @@
   .pilares {
     grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
   }
+
+  .pilares-copy {
+    padding: 36px 24px;
+  }
+
+  .pillar-list {
+    gap: 22px;
+  }
 }
 
 /* ========================================
-   MÓVIL Y TABLET VERTICAL: una columna
+   CELULAR Y TABLET VERTICAL
 ======================================== */
 
 @media (max-width: 768px) {
   .pilares {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 0;
+    width: 100%;
   }
 
   .pilares-photo {
-    min-height: clamp(240px, 52vw, 340px);
+    width: 100%;
+    min-height: 0;
+    height: clamp(300px, 65vw, 430px);
   }
 
-  /* El degradado ahora se funde hacia abajo */
+  .pilares-img {
+    object-position: center center;
+    filter: brightness(52%);
+  }
+
   .pilares-photo::after {
     background: linear-gradient(
       180deg,
-      rgba(48, 48, 47, 0) 60%,
-      rgba(48, 48, 47, 0.7) 100%
+      rgba(10, 12, 10, 0.12) 0%,
+      rgba(10, 12, 10, 0.12) 50%,
+      rgba(10, 12, 10, 0.45) 100%
     );
   }
 
+  .photo-title {
+    width: 100%;
+    padding: 24px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .photo-title span {
+    font-size: clamp(25px, 6vw, 34px);
+    line-height: 1.2;
+  }
+
+  .photo-title strong {
+    margin-top: 8px;
+    font-size: clamp(32px, 8vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .photo-title i {
+    width: 90px;
+    height: 7px;
+    margin-top: 26px;
+  }
+
   .pilares-copy {
-    padding: 40px 24px 48px;
+    width: 100%;
+    padding: 36px 24px 44px;
   }
 
   .pilares-copy p {
-    font-size: 1rem;
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .pillar-list {
+    justify-content: center;
+    gap: 26px 20px;
+    margin: 32px 0;
   }
 
   .pillar {
-    flex-basis: 6.5rem;
+    flex: 0 1 90px;
   }
 }
 
 /* ========================================
-   MÓVIL PEQUEÑO
+   CELULARES PEQUEÑOS
 ======================================== */
 
 @media (max-width: 380px) {
+  .pilares-photo {
+    height: 300px;
+  }
+
+  .photo-title {
+    padding: 20px 14px;
+  }
+
+  .photo-title span {
+    font-size: 24px;
+  }
+
+  .photo-title strong {
+    font-size: 30px;
+  }
+
+  .photo-title i {
+    width: 76px;
+    height: 6px;
+    margin-top: 22px;
+  }
+
   .pilares-copy {
-    padding: 32px 16px 40px;
+    padding: 32px 18px 38px;
   }
 
   .pillar-list {
-    gap: 16px;
+    gap: 22px 12px;
   }
 
   .pillar {
-    flex-basis: 5.5rem;
+    flex-basis: 82px;
   }
 }

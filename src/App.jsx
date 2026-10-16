@@ -1,4 +1,4 @@
-
+﻿
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import Pilares from "./sections/Pilares";
@@ -28,3 +28,5 @@ export default function App() {
     </>
   );
 }
+
+

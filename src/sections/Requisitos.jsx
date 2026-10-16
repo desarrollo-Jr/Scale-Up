@@ -1,4 +1,4 @@
-
+﻿
 import "../assets/styles/requisitos.css";
 
 export default function Requisitos() {
@@ -11,3 +11,5 @@ export default function Requisitos() {
     </section>
   );
 }
+
+

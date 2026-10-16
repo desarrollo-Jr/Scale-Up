@@ -1,4 +1,4 @@
-
+﻿
 import { useState } from "react";
 import {
   FaChevronLeft,
@@ -6,17 +6,16 @@ import {
 } from "react-icons/fa";
 import "../assets/styles/accion.css"
 
-// Imágenes de la galería
-// Coloca tus fotografías dentro de src/assets/galeria/
+
 const galeria = [
   {
-    src: "/images/Bosque.jpg",
+    src: `${import.meta.env.BASE_URL}images/Bosque.jpg`,
     alt: "Experiencia Scale Up",
-    caption: "Descubre una nueva posibilidad de acción",
+    caption: "Descubre una nueva posibilidad de acciÒN",
   },
   {
-    src: "/images/Bosque.jpg",
-    alt: "Innovación y desarrollo",
+    src: `${import.meta.env.BASE_URL}images/Bosque.jpg`,
+    alt: "InnovaciÃ³n y desarrollo",
     caption: "Explora nuevas posibilidades",
   },
 ];
@@ -44,7 +43,7 @@ export default function Accion() {
         <p>RECONOCE UNA</p>
         <h2>NUEVA</h2>
         <p className="accion-subtitle">POSIBILIDAD DE</p>
-        <strong>ACCIÓN</strong>
+        <strong>ACCIÒN</strong>
       </div>
 
       <div className="gallery">
@@ -54,7 +53,7 @@ export default function Accion() {
           type="button"
           className="gallery-arrow left"
           onClick={anterior}
-          aria-label="Fotografía anterior"
+          aria-label="FotografÃ­a anterior"
         >
           <FaChevronLeft />
         </button>
@@ -63,7 +62,7 @@ export default function Accion() {
           type="button"
           className="gallery-arrow right"
           onClick={siguiente}
-          aria-label="Fotografía siguiente"
+          aria-label="FotografÃ­a siguiente"
         >
           <FaChevronRight />
         </button>
@@ -77,7 +76,7 @@ export default function Accion() {
               key={item.src}
               className={i === index ? "dot active" : "dot"}
               onClick={() => setIndex(i)}
-              aria-label={`Ver fotografía ${i + 1}`}
+              aria-label={`Ver fotografÃ­a ${i + 1}`}
             />
           ))}
         </div>
@@ -85,3 +84,5 @@ export default function Accion() {
     </section>
   );
 }
+
+

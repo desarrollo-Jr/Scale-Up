@@ -1,26 +1,26 @@
-import { PersonSimpleHike, Brain, FlowerLotus } from "@phosphor-icons/react";
+﻿import { PersonSimpleHike, Brain, FlowerLotus } from "@phosphor-icons/react";
 
 import "../assets/styles/instructores.css";
 
 const instructores = [
   {
-    nombre: "Ricardo García",
-    especialidad: "Coach ejecutivo · Firewalker · Empresario",
-    imagen: "/images/instructores/ricardo-garcia.jpeg",
+    nombre: "Ricardo Garcì­a",
+    especialidad: "Coach ejecutivo • Firewalker • Empresario •",
+    imagen: `${import.meta.env.BASE_URL}images/instructores/ricardo-garcia.jpeg`,
     color: "verde",
     icono: <PersonSimpleHike weight="bold" />,
   },
   {
-    nombre: "Daniel Sánchez",
+    nombre: "Daniel Sanchez",
     especialidad: "Maestro en Geomancia Tabular",
-    imagen: "/images/instructores/daniel-sanchez.jpeg",
+    imagen: `${import.meta.env.BASE_URL}images/instructores/daniel-sanchez.jpeg`,
     color: "azul",
     icono: <Brain weight="bold" />,
   },
   {
-    nombre: "Daniel García",
+    nombre: "Daniel Garcì­a",
     especialidad: "Life Coach · Facilitador de consciencia",
-    imagen: "/images/instructores/daniel-garcia.jpeg",
+    imagen: `${import.meta.env.BASE_URL}images/instructores/daniel-garcia.jpeg`,
     color: "naranja",
     icono: <FlowerLotus weight="bold" />,
   },
@@ -65,3 +65,6 @@ export default function Instructores() {
     </section>
   );
 }
+
+
+

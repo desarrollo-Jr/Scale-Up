@@ -1,4 +1,4 @@
-
+﻿
 import { useState } from "react";
 import {
   FaMobileAlt,
@@ -31,7 +31,7 @@ export default function Registro() {
     event.preventDefault();
 
     setMensajeEstado(
-      "Gracias por contactarnos. Tu formulario está listo para conectarse con el servicio de envío."
+      "Gracias por contactarnos. Tu formulario està listo para conectarse con el servicio de envÃ­o."
     );
   }
 
@@ -43,7 +43,7 @@ export default function Registro() {
       {/* Encabezado */}
       <header className="registro-header">
         <h1>Ponte en contacto</h1>
-        <h2>Contáctanos</h2>
+        <h2>Contactanos</h2>
       </header>
 
       {/* Contenido principal */}
@@ -52,7 +52,7 @@ export default function Registro() {
         <div className="registro-copy">
           <h3>Queremos ayudarte</h3>
           <p className="registro-llamanos">
-            ¡Llámanos!
+            ¡LLamanos!
           </p>
 
           <p className="registro-descripcion">
@@ -83,7 +83,7 @@ export default function Registro() {
             value={form.correo}
             onChange={handleChange}
             placeholder="Correo..."
-            aria-label="Correo electrónico"
+            aria-label="Correo electrÃ³nico"
             required
           />
 
@@ -151,3 +151,5 @@ export default function Registro() {
     </section>
   );
 }
+
+

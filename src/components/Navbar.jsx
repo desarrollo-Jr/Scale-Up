@@ -1,4 +1,4 @@
-
+﻿
 import { useState } from "react";
 import {
   FaInstagram,
@@ -11,9 +11,9 @@ import {
 import "../assets/styles/navbar.css";
 
 const links = [
-  { label: "Botón de acción 1", href: "#pilares" },
-  { label: "Botón de acción 2", href: "#instructores" },
-  { label: "Botón de acción 3", href: "#registro" },
+  { label: "Boton de acciòn 1", href: "#pilares" },
+  { label: "Boton de acciòn 2", href: "#instructores" },
+  { label: "Boton de acciòn 3", href: "#registro" },
 ];
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
       >
         <img
           className="brand-logo"
-          src="/images/logo-principal.png"
+          src={`${import.meta.env.BASE_URL}images/logo-principal.png`}
           alt="Logo Scale Up"
         />
         
@@ -38,7 +38,7 @@ export default function Navbar() {
         className="menu-toggle"
         type="button"
         onClick={() => setOpen(!open)}
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        aria-label={open ? "Cerrar menÃº" : "Abrir menÃº"}
         aria-expanded={open}
       >
         {open ? <FaTimes /> : <FaBars />}
@@ -72,3 +72,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+

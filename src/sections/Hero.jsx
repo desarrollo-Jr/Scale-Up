@@ -1,4 +1,4 @@
-import "../assets/styles/hero.css";
+﻿import "../assets/styles/hero.css";
 import Button from "../components/Button.jsx";
 
 function Hero() {
@@ -7,7 +7,7 @@ function Hero() {
       <div className="hero-content">
         <img
           className="hero-logo"
-          src="/images/logo.png"
+          src={`${import.meta.env.BASE_URL}images/logo.png`}
           alt="Logo Scale Up"
         />
 
@@ -23,7 +23,7 @@ function Hero() {
 
         <div className="hero-actions">
           <Button href="#registro">
-            ¡Agenda tu llamada!
+            Â¡Agenda tu llamada!
           </Button>
         </div>
       </div>
@@ -32,3 +32,4 @@ function Hero() {
 }
 
 export default Hero;
+

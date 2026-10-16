@@ -1,4 +1,4 @@
-
+﻿
 export default function Button({
   href = "#registro",
   children = "Agenda tu llamada",
@@ -10,3 +10,5 @@ export default function Button({
     </a>
   );
 }
+
+
