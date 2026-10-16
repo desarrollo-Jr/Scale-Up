@@ -1,0 +1,394 @@
+/* ==========================================
+   HERO · SCALE UP
+   Mismas clases que tu HTML/JSX actual:
+   .hero > .hero-content > .hero-logo, .hero-tag,
+   .hero-description, .hero-fecha, .hero-actions
+========================================== */
+
+:root {
+  --brand: #ff4b16;
+  --brand-dark: #e03a08;
+  --brand-glow: rgba(255, 75, 22, 0.45);
+  --white: #ffffff;
+  --ink: rgba(10, 14, 10, 0.78);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
+  max-height: 1080px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--white);
+
+  background-image: url("/images/Portada.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30% center; /* mantiene a la persona visible */
+}
+
+/* Capa oscura para que el texto siempre se lea bien
+   (más fuerte del lado del texto, suave del lado de la foto) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 12, 8, 0) 30%,
+      rgba(8, 12, 8, 0.55) 62%,
+      rgba(8, 12, 8, 0.82) 100%
+    ),
+    linear-gradient(180deg, rgba(8, 12, 8, 0.35) 0%, rgba(8, 12, 8, 0) 28%);
+}
+
+/* ==========================================
+   CONTENIDO (lado derecho en escritorio)
+========================================== */
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: clamp(24px, 4vh, 48px) 5% clamp(24px, 4vh, 48px) 56%;
+
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero-content > * {
+  position: static;
+  inset: auto;
+  transform: none;
+  float: none;
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.hero-logo {
+  display: block;
+  width: clamp(52px, 5.5vw, 84px);
+  height: auto;
+  margin: 0 0 clamp(14px, 2vh, 22px);
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45));
+}
+
+/* ==========================================
+   TEXTOS
+========================================== */
+
+.hero-tag,
+.hero-description,
+.hero-fecha {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+.hero-tag {
+  margin: 0 0 clamp(12px, 2vh, 20px);
+  color: var(--white);
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  margin: 0 0 clamp(12px, 2vh, 18px);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.hero-fecha {
+  margin: 0 0 clamp(20px, 3.5vh, 34px);
+  color: var(--brand);
+  font-size: clamp(1.15rem, 1.9vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.hero-actions a,
+.hero-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 50px;
+  max-width: 100%;
+  margin: 0;
+  padding: 14px 32px;
+
+  color: var(--white);
+  background-color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 999px;
+  box-shadow: 0 10px 28px var(--brand-glow);
+
+  font-family: inherit;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-actions a:hover,
+.hero-actions button:hover {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px var(--brand-glow);
+}
+
+.hero-actions a:active,
+.hero-actions button:active {
+  transform: translateY(0);
+}
+
+.hero-actions a:focus-visible,
+.hero-actions button:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   ENTRADA (una sola animación al cargar)
+========================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-content > * {
+    opacity: 0;
+    animation: hero-rise 0.8s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+  }
+
+  .hero-content > :nth-child(1) { animation-delay: 0.05s; }
+  .hero-content > :nth-child(2) { animation-delay: 0.15s; }
+  .hero-content > :nth-child(3) { animation-delay: 0.25s; }
+  .hero-content > :nth-child(4) { animation-delay: 0.35s; }
+  .hero-content > :nth-child(5) { animation-delay: 0.45s; }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (max-width: 1200px) {
+  .hero-content {
+    padding-left: 50%;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .hero {
+    background-position: 22% center;
+  }
+
+  .hero-content {
+    padding-left: 42%;
+    padding-right: 5%;
+  }
+}
+
+/* ==========================================
+   TELÉFONO (vertical)
+   La foto queda arriba y el texto abajo,
+   así no tapa a la persona.
+========================================== */
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 600px;
+    background-position: 28% top;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 12, 8, 0.35) 0%,
+        rgba(8, 12, 8, 0) 22%,
+        rgba(8, 12, 8, 0.55) 48%,
+        rgba(8, 12, 8, 0.92) 100%
+      );
+  }
+
+  .hero-content {
+    justify-content: flex-end;
+    padding: 24px 20px 40px;
+  }
+
+  .hero-logo {
+    width: 52px;
+    margin-bottom: 12px;
+  }
+
+  .hero-tag,
+  .hero-description,
+  .hero-fecha {
+    max-width: 22rem;
+  }
+
+  .hero-tag {
+    font-size: clamp(1.9rem, 8.5vw, 2.4rem);
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+  }
+
+  .hero-fecha {
+    font-size: 1.2rem;
+    margin-bottom: 22px;
+  }
+
+  .hero-actions a,
+  .hero-actions button {
+    width: 100%;
+    max-width: 22rem;
+  }
+}
+
+/* ==========================================
+   TELÉFONOS PEQUEÑOS
+========================================== */
+
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 20px 16px 32px;
+  }
+
+  .hero-actions a,
+  .hero-actions button {
+    padding: 12px 20px;
+    font-size: 0.92rem;
+  }
+}
+
+/* ==========================================
+   HORIZONTAL EN TELÉFONO / PANTALLAS BAJAS
+========================================== */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    min-height: 420px;
+    height: auto;
+    background-position: 25% center;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 12, 8, 0) 25%,
+      rgba(8, 12, 8, 0.85) 100%
+    );
+  }
+
+  .hero-content {
+    justify-content: center;
+    padding: 14px 4% 14px 48%;
+  }
+
+  .hero-logo {
+    width: 36px;
+    margin-bottom: 6px;
+  }
+
+  .hero-tag {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .hero-fecha {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-actions a,
+  .hero-actions button {
+    width: auto;
+    min-height: 40px;
+    padding: 9px 22px;
+    font-size: 0.9rem;
+  }
+}

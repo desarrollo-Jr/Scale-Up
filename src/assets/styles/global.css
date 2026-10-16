@@ -1,0 +1,62 @@
+
+/* ==========================================
+   CONFIGURACIÓN GLOBAL - SCALE UP
+========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+/* Contenedor principal de React */
+#root {
+  max-width: none;
+  width: 100%;
+  text-align: initial;
+}
+
+/* Evita que las imágenes excedan su contenedor */
+img {
+  max-width: 100%;
+}
+
+/* Los controles heredan la tipografía */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Los enlaces no tienen subrayado por defecto */
+a {
+  text-decoration: none;
+}
+
+/* Anclas para navegación entre secciones */
+.section-anchor {
+  scroll-margin-top: 75px;
+}

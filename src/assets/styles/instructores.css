@@ -1,0 +1,468 @@
+
+/* =========================================
+   INSTRUCTORES - DISEÑO PROFESIONAL
+   Responsive: escritorio, tablet y móvil
+========================================= */
+
+.instructores {
+  --fondo: #0b0f14;
+  --superficie: #171e27;
+  --texto: #f7f9fc;
+  --texto-secundario: #b9c3cf;
+  --borde: rgba(255, 255, 255, 0.09);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(48px, 7vw, 90px) clamp(18px, 5vw, 72px);
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(45, 57, 70, 0.65) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #11171e 0%, var(--fondo) 100%);
+  color: var(--texto);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Detalle decorativo del fondo */
+.instructores::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  left: -150px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(139, 224, 0, 0.055);
+  filter: blur(85px);
+  pointer-events: none;
+}
+
+.instructores::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -170px;
+  bottom: 40px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgba(7, 87, 255, 0.07);
+  filter: blur(95px);
+  pointer-events: none;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.instructores-header {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 850px);
+  margin: 0 auto clamp(38px, 5vw, 68px);
+  text-align: center;
+}
+
+.instructores-header span {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #a9b5c2;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 750;
+  letter-spacing: 0.28em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.instructores-header h2 {
+  margin: 0;
+  color: var(--texto);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.instructores-header h2::after {
+  content: "";
+  display: block;
+  width: clamp(55px, 7vw, 82px);
+  height: 4px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8be000, #d2ff6a);
+}
+
+/* =========================================
+   DISTRIBUCIÓN DE TARJETAS
+========================================= */
+
+.instructores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(24px, 3.5vw, 48px);
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TARJETA DEL INSTRUCTOR
+========================================= */
+
+.instructor-card {
+  --acento: #8be000;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.instructor-card.azul {
+  --acento: #3984ff;
+}
+
+.instructor-card.naranja {
+  --acento: #ff9b38;
+}
+
+/* =========================================
+   FOTO Y MARCO
+========================================= */
+
+.instructor-foto {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 285px);
+  height: clamp(260px, 27vw, 350px);
+  margin: 0 auto -1px;
+}
+
+.foto-marco {
+  position: absolute;
+  inset: 12px 12px 0;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--acento) 75%,
+    transparent
+  );
+  border-radius: 24px 24px 18px 18px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--acento) 15%, #171e27),
+    #10151b
+  );
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18),
+    0 0 24px color-mix(
+      in srgb,
+      var(--acento) 9%,
+      transparent
+    );
+}
+
+.foto-marco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px 16px 12px 12px;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%);
+  transition:
+    filter 0.4s ease,
+    transform 0.5s ease;
+}
+
+/* =========================================
+   ICONO SOBRE LA FOTO
+========================================= */
+
+.instructor-icono {
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  transform: translateX(-50%);
+  border: 4px solid #171e27;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #10151b;
+  font-size: 29px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
+.instructor-info {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 38px 22px 28px;
+  border: 1px solid var(--borde);
+  border-top-color: color-mix(
+    in srgb,
+    var(--acento) 35%,
+    transparent
+  );
+  border-radius: 20px;
+  background: linear-gradient(
+    150deg,
+    rgba(31, 40, 51, 0.98),
+    rgba(20, 26, 34, 0.98)
+  );
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.instructor-info h3 {
+  margin: 0;
+  color: var(--texto);
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 750;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.nombre-linea {
+  flex-shrink: 0;
+  width: 56px;
+  height: 4px;
+  margin: 14px auto 16px;
+  border-radius: 999px;
+  background: var(--acento);
+  box-shadow: 0 0 14px color-mix(
+    in srgb,
+    var(--acento) 25%,
+    transparent
+  );
+}
+
+.instructor-info p {
+  max-width: 340px;
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   EFECTOS PARA DISPOSITIVOS CON MOUSE
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .instructor-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .instructor-card:hover .foto-marco img {
+    filter: grayscale(15%);
+    transform: scale(1.035);
+  }
+
+  .instructor-card:hover .instructor-info {
+    border-color: color-mix(
+      in srgb,
+      var(--acento) 55%,
+      transparent
+    );
+    box-shadow:
+      0 20px 42px rgba(0, 0, 0, 0.3),
+      0 0 20px color-mix(
+        in srgb,
+        var(--acento) 7%,
+        transparent
+      );
+  }
+
+  .instructor-card:hover .instructor-icono {
+    box-shadow: 0 0 22px color-mix(
+      in srgb,
+      var(--acento) 35%,
+      transparent
+    );
+  }
+}
+
+/* =========================================
+   TABLETS Y LAPTOPS PEQUEÑAS
+========================================= */
+
+@media (max-width: 1024px) {
+  .instructores-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 26px;
+    max-width: 800px;
+  }
+
+  .instructor-foto {
+    width: min(100%, 280px);
+    height: clamp(260px, 35vw, 320px);
+  }
+
+  .instructor-info {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+  .instructores {
+    padding: 48px 18px 58px;
+  }
+
+  .instructores-header {
+    margin-bottom: 42px;
+  }
+
+  .instructores-header span {
+    margin-bottom: 11px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .instructores-header h2 {
+    font-size: clamp(28px, 8vw, 38px);
+    letter-spacing: -0.025em;
+  }
+
+  .instructores-header h2::after {
+    margin-top: 16px;
+  }
+
+  .instructores-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    max-width: 380px;
+  }
+
+  .instructor-card {
+    width: 100%;
+  }
+
+  .instructor-foto {
+    width: min(100%, 265px);
+    height: clamp(285px, 82vw, 330px);
+  }
+
+  .foto-marco {
+    inset: 10px 10px 0;
+    padding: 7px;
+    border-radius: 21px 21px 16px 16px;
+  }
+
+  .foto-marco img {
+    border-radius: 14px 14px 10px 10px;
+  }
+
+  .instructor-icono {
+    bottom: -21px;
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+
+  .instructor-info {
+    padding: 34px 20px 24px;
+    border-radius: 18px;
+  }
+
+  .instructor-info h3 {
+    font-size: 21px;
+  }
+
+  .nombre-linea {
+    width: 48px;
+    height: 4px;
+    margin: 12px auto;
+  }
+
+  .instructor-info p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+/* =========================================
+   CELULARES MUY PEQUEÑOS
+========================================= */
+
+@media (max-width: 360px) {
+  .instructores {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .instructores-grid {
+    gap: 32px;
+  }
+
+  .instructor-foto {
+    width: min(100%, 235px);
+    height: 275px;
+  }
+
+  .instructor-info {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .instructor-info h3 {
+    font-size: 19px;
+  }
+
+  .instructor-info p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .instructor-card,
+  .instructor-info,
+  .foto-marco img,
+  .instructor-icono {
+    transition: none;
+  }
+
+  .instructor-card:hover {
+    transform: none;
+  }
+
+  .instructor-card:hover .foto-marco img {
+    transform: none;
+  }
+}

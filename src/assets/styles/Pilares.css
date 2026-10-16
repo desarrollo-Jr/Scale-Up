@@ -1,0 +1,281 @@
+/* ========================================
+   SECCIÓN PILARES
+   Mismas clases que tu HTML/JSX actual.
+   Usa --brand de hero.css (con respaldo).
+======================================== */
+
+.pilares {
+  --pilares-brand: var(--brand, #ff4b16);
+  --pilares-bg: #30302f;
+
+  display: grid;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  width: 100%;
+  min-height: clamp(420px, 42vw, 560px);
+  overflow: hidden;
+  color: #fff;
+  background-color: var(--pilares-bg);
+}
+
+/* ========================================
+   COLUMNA IZQUIERDA: IMAGEN + TÍTULO
+======================================== */
+
+.pilares-photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.pilares-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(52%);
+}
+
+/* Degradado para que el título resalte y la foto
+   se funda con el panel de texto */
+.pilares-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(48, 48, 47, 0) 60%,
+    rgba(48, 48, 47, 0.55) 100%
+  );
+}
+
+.photo-title {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.05;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+}
+
+.photo-title span {
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.photo-title strong {
+  margin-top: 6px;
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.photo-title i {
+  display: block;
+  width: clamp(48px, 5vw, 72px);
+  height: 4px;
+  margin-top: 14px;
+  border-radius: 4px;
+  background-color: var(--pilares-brand);
+}
+
+/* ========================================
+   COLUMNA DERECHA: CONTENIDO
+======================================== */
+
+.pilares-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  padding: clamp(32px, 5vw, 72px) clamp(24px, 5vw, 80px);
+
+  color: #fff;
+  text-align: center;
+  background-color: var(--pilares-bg);
+}
+
+/* ========================================
+   TEXTOS
+======================================== */
+
+.pilares-copy p {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.pilares-intro strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.pilares-copy .pilares-subtitle {
+  margin-top: clamp(18px, 2.5vw, 28px);
+}
+
+/* ========================================
+   LISTA DE LOS TRES PILARES
+======================================== */
+
+.pillar-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  gap: clamp(20px, 4vw, 56px);
+  margin: clamp(28px, 4vw, 44px) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pillar {
+  display: flex;
+  flex: 0 1 8rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--pilares-brand);
+}
+
+/* ========================================
+   CÍRCULOS DE LOS ÍCONOS
+======================================== */
+
+.pillar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(56px, 5.4vw, 76px);
+  height: clamp(56px, 5.4vw, 76px);
+  flex-shrink: 0;
+
+  border: 2px solid var(--pilares-brand);
+  border-radius: 50%;
+
+  color: var(--pilares-brand);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.pillar:hover .pillar-icon {
+  background-color: var(--pilares-brand);
+  color: #fff;
+}
+
+.pillar small {
+  color: var(--pilares-brand);
+  font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* ========================================
+   PÁRRAFO INFERIOR
+======================================== */
+
+.pilares-copy .pilares-footer {
+  max-width: 36rem;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+  .pilares {
+    grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
+  }
+}
+
+/* ========================================
+   MÓVIL Y TABLET VERTICAL: una columna
+======================================== */
+
+@media (max-width: 768px) {
+  .pilares {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .pilares-photo {
+    min-height: clamp(240px, 52vw, 340px);
+  }
+
+  /* El degradado ahora se funde hacia abajo */
+  .pilares-photo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(48, 48, 47, 0) 60%,
+      rgba(48, 48, 47, 0.7) 100%
+    );
+  }
+
+  .pilares-copy {
+    padding: 40px 24px 48px;
+  }
+
+  .pilares-copy p {
+    font-size: 1rem;
+  }
+
+  .pillar {
+    flex-basis: 6.5rem;
+  }
+}
+
+/* ========================================
+   MÓVIL PEQUEÑO
+======================================== */
+
+@media (max-width: 380px) {
+  .pilares-copy {
+    padding: 32px 16px 40px;
+  }
+
+  .pillar-list {
+    gap: 16px;
+  }
+
+  .pillar {
+    flex-basis: 5.5rem;
+  }
+}

@@ -1,0 +1,73 @@
+/* ========================================
+   REQUISITOS - SCALE UP
+   Usa --brand de hero.css (con respaldo).
+======================================== */
+
+.requisitos {
+  --req-brand: var(--brand, #ff4b16);
+
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: clamp(150px, 16vw, 230px);
+  padding: clamp(36px, 5vw, 64px) clamp(16px, 4vw, 40px);
+  overflow: hidden;
+
+  background: #fff;
+  text-align: center;
+}
+
+/* Fondo decorativo: letra S
+   Se centra en la sección y escala con el ancho de pantalla */
+.requisitos::before {
+  content: "S";
+
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #f4f4f4;
+  font-family: inherit;
+  font-size: clamp(300px, 42vw, 620px);
+  font-weight: 900;
+  line-height: 1;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Título */
+.requisitos h2 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 36rem;
+  margin: 0;
+
+  color: var(--req-brand);
+  font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Línea de acento bajo el título */
+.requisitos h2::after {
+  content: "";
+  display: block;
+  width: clamp(40px, 4vw, 56px);
+  height: 3px;
+  margin: 12px auto 0;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: 0.85;
+}
