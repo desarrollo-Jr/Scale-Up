@@ -23,7 +23,7 @@ function Hero() {
 
         <div className="hero-actions">
           <Button href="#registro">
-            Â¡Agenda tu llamada!
+            Agenda tu llamada!
           </Button>
         </div>
       </div>
