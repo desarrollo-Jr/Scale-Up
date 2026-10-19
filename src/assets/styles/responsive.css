@@ -1,4 +1,8 @@
 
+/* ==========================================
+   PANTALLAS GRANDES
+========================================== */
+
 @media (min-width: 1440px) {
   .hero,
   .pilares,
@@ -6,13 +10,20 @@
   .accion,
   .requisitos,
   .registro {
-    max-width: var(--content-width);
+    max-width: var(--content-width, 1400px);
     margin-left: auto;
     margin-right: auto;
   }
 }
 
+/* ==========================================
+   TABLETS Y CELULARES
+========================================== */
+
 @media (max-width: 760px) {
+
+  /* NAVBAR */
+
   .navbar {
     min-height: 62px;
     padding: 16px 5%;
@@ -24,6 +35,7 @@
     justify-content: center;
     position: relative;
     z-index: 12;
+    flex-shrink: 0;
   }
 
   .nav-links {
@@ -32,11 +44,14 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: 75px 24px 26px;
+    width: 100%;
+    padding: 85px 24px 26px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 22px;
-    background: rgba(27, 28, 27, 0.97);
+    background: rgba(27, 28, 27, 0.98);
+    text-align: center;
+    z-index: 11;
   }
 
   .nav-links.is-open {
@@ -44,14 +59,23 @@
   }
 
   .nav-links > a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    text-align: center;
   }
 
+  /* ========================================
+     HERO / PORTADA
+  ======================================== */
+
   .hero {
+    width: 100%;
     min-height: 650px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 100px 7% 60px;
-    background-position: 42% center;
+    padding: 100px 20px 50px;
+    background-position: center center;
+    overflow: hidden;
   }
 
   .hero-shade {
@@ -69,93 +93,272 @@
   }
 
   .hero-content {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    max-width: 360px;
-    margin-top: 180px;
+    max-width: 420px;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content > * {
+    max-width: 100%;
   }
 
   .hero-outline {
-    left: 13%;
+    left: 10%;
     top: 18%;
-    width: 48%;
-    height: 38%;
-    opacity: 0.8;
+    width: 80%;
+    height: 48%;
+    opacity: 0.65;
+    pointer-events: none;
   }
 
+  /* ========================================
+     PILARES
+  ======================================== */
+
   .pilares {
-    grid-template-columns: 1fr;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-items: stretch;
+    margin-inline: auto;
   }
 
   .pilares-photo {
-    min-height: 330px;
+    width: 100%;
+    min-height: 300px;
   }
 
   .pilares-copy {
+    width: 100%;
     padding: 42px 24px;
+    text-align: center;
   }
+
+  .pillar-list {
+    width: 100%;
+    max-width: 500px;
+    margin-inline: auto;
+    gap: 24px;
+  }
+
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+  }
+
+  /* ========================================
+     INSTRUCTORES
+  ======================================== */
 
   .instructores {
-    padding: 45px 5% 0;
-  }
-
-  .instructores-grid {
-    gap: 14px;
-  }
-
-  .instructor-photo-wrap {
-    height: 145px;
-    border-radius: 15px 15px 0 0;
-  }
-
-  .instructor-info {
-    width: 115%;
-    padding: 12px 6px 9px;
-  }
-
-  .instructor-info h3 {
-    font-size: 0.75rem;
-  }
-
-  .instructor-info p {
-    font-size: 0.55rem;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 65px 20px 75px;
+    text-align: center;
   }
 
   .instructores-heading {
-    margin-top: 32px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    text-align: center;
   }
 
+  .instructores-grid {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    align-items: start;
+    column-gap: 22px;
+    row-gap: 45px;
+  }
+
+  .instructor-card {
+    width: 100%;
+    max-width: 300px;
+    min-width: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instructor-photo-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 22px;
+  }
+
+  .instructor-photo-wrap img {
+    max-width: 100%;
+  }
+
+  .instructor-info {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 270px;
+    min-width: 0;
+    min-height: 115px;
+    margin: -12px auto 0;
+    padding: 20px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .instructor-info h3 {
+    max-width: 100%;
+    margin: 0 auto 12px;
+    font-size: 1rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .instructor-info p {
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ========================================
+     ACCIÓN
+  ======================================== */
+
   .accion {
-    grid-template-columns: 1fr;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    margin-inline: auto;
   }
 
   .accion-copy {
+    width: 100%;
     min-height: 300px;
-    padding: 42px 10%;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .accion-copy > strong {
+    max-width: 100%;
+    font-size: clamp(2.4rem, 9vw, 3.3rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
 
   .gallery {
+    width: 100%;
     min-height: 330px;
   }
 
-  .requisitos-grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
+  /* ========================================
+     REQUISITOS
+  ======================================== */
+
+  .requisitos {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 20px;
+    text-align: center;
   }
 
+  .requisitos-grid {
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 22px;
+  }
+
+  /* ========================================
+     REGISTRO
+  ======================================== */
+
   .registro {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 58px 7%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 32px;
+    margin-inline: auto;
+    padding: 58px 24px;
+  }
+
+  .registro > * {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    margin-inline: auto;
   }
 }
 
+/* ==========================================
+   CELULARES PEQUEÑOS
+========================================== */
+
 @media (max-width: 430px) {
+
+  /* HERO */
+
   .hero {
     min-height: 590px;
+    padding: 90px 16px 40px;
+    background-position: 42% center;
   }
 
   .hero-content {
-    margin-top: 145px;
+    max-width: 360px;
+    margin: 90px auto 0;
+  }
+
+  .hero-outline {
+    left: 8%;
+    top: 19%;
+    width: 84%;
+    height: 43%;
+  }
+
+  /* PILARES */
+
+  .pilares-photo {
+    min-height: 260px;
+  }
+
+  .pilares-copy {
+    padding: 36px 20px;
   }
 
   .pillar-list {
@@ -165,37 +368,121 @@
   .pillar-icon {
     width: 45px;
     height: 45px;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
-  .instructores-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    max-width: 260px;
-  }
+  /* INSTRUCTORES */
 
-  .instructor-photo-wrap {
-    width: 150px;
-    height: 185px;
-  }
-
-  .instructor-info {
-    width: 200px;
-  }
-
-  .instructor-info h3 {
-    font-size: 0.9rem;
-  }
-
-  .instructor-info p {
-    font-size: 0.62rem;
+  .instructores {
+    padding: 60px 18px 65px;
   }
 
   .instructores-heading {
-    font-size: 1.55rem;
+    max-width: 100%;
+    margin: 0 auto 42px;
+  }
+
+  .instructores-grid {
+    width: 100%;
+    max-width: 350px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 45px;
+    margin-inline: auto;
+  }
+
+  .instructor-card {
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .instructor-photo-wrap {
+    width: 100%;
+    max-width: 290px;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 24px;
+  }
+
+  .instructor-info {
+    width: 88%;
+    max-width: 275px;
+    min-height: 120px;
+    margin: -12px auto 0;
+    padding: 20px 14px;
+  }
+
+  .instructor-info h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .instructor-info p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  /* ACCIÓN */
+
+  .accion-copy {
+    min-height: 280px;
+    padding: 40px 20px;
   }
 
   .accion-copy > strong {
-    font-size: 3.3rem;
+    font-size: clamp(2.3rem, 10vw, 3.3rem);
+  }
+
+  /* REQUISITOS Y REGISTRO */
+
+  .requisitos-grid {
+    max-width: 100%;
+  }
+
+  .registro {
+    padding: 48px 20px;
+    gap: 26px;
+  }
+}
+
+/* ==========================================
+   TELÉFONOS MUY ESTRECHOS
+========================================== */
+
+@media (max-width: 350px) {
+
+  .hero {
+    padding-inline: 12px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .instructores {
+    padding-inline: 12px;
+  }
+
+  .instructores-grid {
+    max-width: 100%;
+  }
+
+  .instructor-card {
+    max-width: 290px;
+  }
+
+  .instructor-photo-wrap {
+    max-width: 260px;
+  }
+
+  .instructor-info {
+    width: 92%;
+    padding-inline: 10px;
+  }
+
+  .registro {
+    padding-inline: 14px;
   }
 }
