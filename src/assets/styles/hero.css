@@ -1,4 +1,4 @@
-
+﻿
 /* ==========================================
    HERO - SCALE UP
    ESTILO PROFESIONAL Y RESPONSIVE
@@ -39,7 +39,7 @@
   background-color: #151815;
 
   background-image:
-    url("/Scale-Up/images/Portada.png");
+    url("/images/Portada.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30% center;
@@ -159,7 +159,7 @@
 }
 
 /* ==========================================
-   TÍTULO PRINCIPAL - SCALE UP
+   TÃTULO PRINCIPAL - SCALE UP
 ========================================== */
 
 .hero-tag {
@@ -174,7 +174,7 @@
 }
 
 /* ==========================================
-   DESCRIPCIÓN
+   DESCRIPCIÃ“N
 ========================================== */
 
 .hero-description {
@@ -285,7 +285,7 @@
 }
 
 /* ==========================================
-   ANIMACIÓN DE ENTRADA
+   ANIMACIÃ“N DE ENTRADA
 ========================================== */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -520,7 +520,7 @@
 }
 
 /* ==========================================
-   CELULARES PEQUEÑOS - HASTA 380px
+   CELULARES PEQUEÃ‘OS - HASTA 380px
 ========================================== */
 
 @media (max-width: 380px) {
@@ -564,7 +564,7 @@
 }
 
 /* ==========================================
-   TELÉFONOS EN HORIZONTAL
+   TELÃ‰FONOS EN HORIZONTAL
 ========================================== */
 
 @media (max-height: 520px) and (orientation: landscape) {
@@ -626,3 +626,4 @@
     font-size: 13px;
   }
 }
+
