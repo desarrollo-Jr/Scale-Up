@@ -1,18 +1,27 @@
-/* Prueba de publicación móvil */
+
 /* ==========================================
    PANTALLAS GRANDES
 ========================================== */
 
 @media (min-width: 1440px) {
-  .hero,
+  /* La portada ocupa todo el ancho */
+  .hero {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Las demás secciones conservan su ancho */
   .pilares,
   .instructores,
   .accion,
   .requisitos,
   .registro {
-    max-width: var(--content-width, 1400px);
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -52,6 +61,7 @@
     background: rgba(27, 28, 27, 0.98);
     text-align: center;
     z-index: 11;
+    box-sizing: border-box;
   }
 
   .nav-links.is-open {
@@ -63,9 +73,7 @@
     text-align: center;
   }
 
-  /* ========================================
-     HERO / PORTADA
-  ======================================== */
+  /* HERO / PORTADA */
 
   .hero {
     position: relative;
@@ -77,6 +85,7 @@
     padding: 100px 20px 45px;
     background-position: center center;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .hero-shade {
@@ -121,9 +130,7 @@
     pointer-events: none;
   }
 
-  /* ========================================
-     PILARES
-  ======================================== */
+  /* PILARES */
 
   .pilares {
     width: 100%;
@@ -143,6 +150,7 @@
     width: 100%;
     padding: 42px 24px;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .pillar-list {
@@ -159,45 +167,45 @@
     font-size: 1.25rem;
   }
 
-  /* ========================================
-     INSTRUCTORES
-  ======================================== */
+  /* INSTRUCTORES */
 
   .instructores {
     width: 100%;
     max-width: 100%;
-    margin-inline: auto;
+    margin: 0 auto;
     padding: 65px 20px 75px;
+    box-sizing: border-box;
     text-align: center;
   }
 
   .instructores-heading {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto 48px;
+    margin: 0 auto 40px;
     text-align: center;
   }
 
   .instructores-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 22px;
     justify-items: center;
     align-items: start;
-    column-gap: 22px;
-    row-gap: 45px;
+    box-sizing: border-box;
   }
 
   .instructor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 300px;
     min-width: 0;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box;
     text-align: center;
   }
 
@@ -233,8 +241,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    box-sizing: border-box;
     overflow-wrap: anywhere;
+    text-align: center;
   }
 
   .instructor-info h3 {
@@ -253,9 +262,7 @@
     text-align: center;
   }
 
-  /* ========================================
-     ACCIÓN
-  ======================================== */
+  /* ACCIÓN */
 
   .accion {
     width: 100%;
@@ -273,6 +280,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     text-align: center;
   }
 
@@ -289,14 +297,13 @@
     min-height: 330px;
   }
 
-  /* ========================================
-     REQUISITOS
-  ======================================== */
+  /* REQUISITOS */
 
   .requisitos {
     width: 100%;
     margin-inline: auto;
     padding-inline: 20px;
+    box-sizing: border-box;
     text-align: center;
   }
 
@@ -310,9 +317,7 @@
     gap: 22px;
   }
 
-  /* ========================================
-     REGISTRO
-  ======================================== */
+  /* REGISTRO */
 
   .registro {
     width: 100%;
@@ -322,6 +327,7 @@
     gap: 32px;
     margin-inline: auto;
     padding: 58px 24px;
+    box-sizing: border-box;
   }
 
   .registro > * {
@@ -400,30 +406,37 @@
     font-size: 1.2rem;
   }
 
-  /* INSTRUCTORES */
+  /* INSTRUCTORES: UNA COLUMNA */
 
   .instructores {
     padding: 60px 18px 65px;
+    box-sizing: border-box;
   }
 
   .instructores-heading {
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto 42px;
+    margin: 0 auto 35px;
   }
 
   .instructores-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
     width: 100%;
     max-width: 350px;
-    grid-template-columns: minmax(0, 1fr);
+    margin: 0 auto;
+    gap: 35px;
     justify-items: center;
-    gap: 45px;
-    margin-inline: auto;
+    align-items: start;
+    box-sizing: border-box;
   }
 
   .instructor-card {
     width: 100%;
     max-width: 320px;
-    margin-inline: auto;
+    min-width: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .instructor-photo-wrap {
@@ -431,7 +444,7 @@
     max-width: 290px;
     aspect-ratio: 4 / 5;
     height: auto;
-    margin-inline: auto;
+    margin: 0 auto;
     border-radius: 24px;
   }
 
@@ -441,14 +454,17 @@
     min-height: 120px;
     margin: -12px auto 0;
     padding: 20px 14px;
+    box-sizing: border-box;
   }
 
   .instructor-info h3 {
+    max-width: 100%;
     font-size: 1rem;
     line-height: 1.3;
   }
 
   .instructor-info p {
+    max-width: 100%;
     font-size: 0.78rem;
     line-height: 1.5;
   }
@@ -462,6 +478,10 @@
 
   .accion-copy > strong {
     font-size: clamp(2.3rem, 10vw, 3.3rem);
+  }
+
+  .gallery {
+    width: 100%;
   }
 
   /* REQUISITOS Y REGISTRO */
@@ -499,10 +519,13 @@
   }
 
   .instructores-grid {
+    width: 100%;
     max-width: 100%;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   .instructor-card {
+    width: 100%;
     max-width: 290px;
   }
 

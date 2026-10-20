@@ -23,7 +23,7 @@ export default function Pilares() {
 
         <div className="photo-title">
           <span>REPROGRAMA</span>
-          <strong>TUS LìMITES</strong>
+          <strong>TUS LÌMITES</strong>
           <i />
         </div>
       </div>

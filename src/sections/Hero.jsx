@@ -12,7 +12,7 @@ function Hero() {
         />
 
         <span className="hero-tag">Scale Up</span>
-
+       
         <p className="hero-description">
           No es un retiro, ES UN UMBRAL
         </p>

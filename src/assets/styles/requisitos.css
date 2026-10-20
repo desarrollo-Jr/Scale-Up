@@ -1,10 +1,13 @@
+
 /* ========================================
-   REQUISITOS - SCALE UP
-   Usa --brand de hero.css (con respaldo).
+   SECCIÓN REQUISITOS
+   Mismas dimensiones exteriores que PILARES
 ======================================== */
 
 .requisitos {
   --req-brand: var(--brand, #ff4b16);
+  --req-bg: #ffffff;
+  --req-text: #292a29;
 
   position: relative;
   isolation: isolate;
@@ -14,16 +17,27 @@
   justify-content: center;
 
   width: 100%;
-  min-height: clamp(150px, 16vw, 230px);
-  padding: clamp(36px, 5vw, 64px) clamp(16px, 4vw, 40px);
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+
+  margin: 0;
+  padding: clamp(32px, 5vw, 72px);
+
+  box-sizing: border-box;
   overflow: hidden;
 
-  background: #fff;
+  color: var(--req-text);
+  background: var(--req-bg);
+
   text-align: center;
+  font-family: inherit;
 }
 
-/* Fondo decorativo: letra S
-   Se centra en la sección y escala con el ancho de pantalla */
+/* ========================================
+   FONDO DECORATIVO: LETRA S
+======================================== */
+
 .requisitos::before {
   content: "S";
 
@@ -34,40 +48,185 @@
 
   transform: translate(-50%, -50%);
 
-  color: #f4f4f4;
+  color: #f3f3f3;
   font-family: inherit;
-  font-size: clamp(300px, 42vw, 620px);
+  font-size: clamp(400px, 48vw, 760px);
   font-weight: 900;
-  line-height: 1;
+  line-height: 0.85;
+  letter-spacing: -0.08em;
 
   pointer-events: none;
   user-select: none;
 }
 
-/* Título */
+/* Luz decorativa sutil */
+
+.requisitos::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 75, 22, 0.045) 0%,
+      transparent 58%
+    );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+.requisitos > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Título principal */
+
 .requisitos h2 {
   position: relative;
   z-index: 1;
 
-  max-width: 36rem;
+  width: min(100%, 850px);
   margin: 0;
 
   color: var(--req-brand);
-  font-size: clamp(1.25rem, 2.4vw, 1.9rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+
   text-wrap: balance;
+  overflow-wrap: anywhere;
+
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.025);
 }
 
 /* Línea de acento bajo el título */
+
 .requisitos h2::after {
   content: "";
+
   display: block;
-  width: clamp(40px, 4vw, 56px);
-  height: 3px;
-  margin: 12px auto 0;
-  border-radius: 3px;
-  background: currentColor;
-  opacity: 0.85;
+
+  width: clamp(100px, 6vw, 84px);
+  height: 4px;
+
+  margin: clamp(18px, 2.5vw, 28px) auto 0;
+
+  background: var(--req-brand);
+  border-radius: 90px;
+
+  opacity: 0.9;
+}
+
+/* ========================================
+   ESCRITORIOS CON POCA ALTURA
+======================================== */
+
+@media (min-width: 769px) and (max-height: 700px) {
+  .requisitos {
+    padding: 28px;
+  }
+
+  .requisitos h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .requisitos::before {
+    font-size: clamp(360px, 42vw, 580px);
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .requisitos {
+    padding: 40px;
+  }
+
+  .requisitos h2 {
+    max-width: 700px;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
+
+  .requisitos::before {
+    font-size: 62vw;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 768px) {
+  .requisitos {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    padding: 100px 24px;
+
+    overflow: hidden;
+  }
+
+  .requisitos h2 {
+    width: 100%;
+    max-width: 600px;
+
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .requisitos h2::after {
+    width: 58px;
+    height: 3px;
+    margin-top: 20px;
+  }
+
+  .requisitos::before {
+    font-size: clamp(300px, 85vw, 520px);
+  }
+}
+
+/* ========================================
+   MÓVILES PEQUEÑOS
+======================================== */
+
+@media (max-width: 380px) {
+  .requisitos {
+    padding: 80px 18px;
+  }
+
+  .requisitos h2 {
+    font-size: 1.7rem;
+  }
+
+  .requisitos::before {
+    font-size: 310px;
+  }
+}
+
+/* ========================================
+   MOVIMIENTO REDUCIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .requisitos,
+  .requisitos::before,
+  .requisitos::after {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
 }

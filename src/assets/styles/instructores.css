@@ -1,468 +1,686 @@
 
-/* =========================================
-   INSTRUCTORES - DISEÑO PROFESIONAL
-   Responsive: escritorio, tablet y móvil
-========================================= */
+/* ==========================================
+   SCALE UP - INSTRUCTORES
+   RETRATOS PREMIUM - VERSIÓN CORREGIDA
+========================================== */
+
+/* ==========================================
+   1. SECCIÓN PRINCIPAL
+========================================== */
 
 .instructores {
-  --fondo: #0b0f14;
-  --superficie: #171e27;
-  --texto: #f7f9fc;
-  --texto-secundario: #b9c3cf;
-  --borde: rgba(255, 255, 255, 0.09);
+  --fondo: #30302f;
+  --panel: #9b9b9b;
+  --texto: #ffffff;
+
+  /* TAMAÑOS PRINCIPALES */
+  --ancho-tarjeta: 360px;
+  --ancho-foto: 78%;
+  --alto-foto: 500px;
+  --separacion: 50px;
 
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  padding: clamp(48px, 7vw, 90px) clamp(18px, 5vw, 72px);
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(45, 57, 70, 0.65) 0%,
-      transparent 55%
-    ),
-    linear-gradient(180deg, #11171e 0%, var(--fondo) 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
+
+  margin: 0;
+  padding: 55px 4% 75px;
+
+  box-sizing: border-box;
+  overflow-x: clip;
+
   color: var(--texto);
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: var(--fondo);
 }
 
-/* Detalle decorativo del fondo */
-.instructores::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 120px;
-  left: -150px;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: rgba(139, 224, 0, 0.055);
-  filter: blur(85px);
-  pointer-events: none;
-}
+/* ==========================================
+   2. ENCABEZADO
+========================================== */
 
-.instructores::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: -170px;
-  bottom: 40px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: rgba(7, 87, 255, 0.07);
-  filter: blur(95px);
-  pointer-events: none;
-}
-
-/* =========================================
-   ENCABEZADO
-========================================= */
-
-.instructores-header {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 850px);
-  margin: 0 auto clamp(38px, 5vw, 68px);
+.instructores .instructores-header {
+  width: 100%;
+  margin: 0 auto 45px;
   text-align: center;
 }
 
-.instructores-header span {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #a9b5c2;
-  font-size: clamp(11px, 1.2vw, 14px);
-  font-weight: 750;
-  letter-spacing: 0.28em;
-  line-height: 1.5;
+/* NUESTROS */
+.instructores .instructores-header span {
+  display: block;
+
+  margin: 0 0 9px;
+
+  color: #bcbcbc;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
 }
 
-.instructores-header h2 {
+/* INSTRUCTORES */
+.instructores .instructores-header h2 {
   margin: 0;
-  color: var(--texto);
-  font-size: clamp(30px, 4vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 3vw, 50px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+
+  text-align: center;
   text-wrap: balance;
 }
 
-.instructores-header h2::after {
-  content: "";
-  display: block;
-  width: clamp(55px, 7vw, 82px);
+/* Línea decorativa */
+.instructores .titulo-linea {
+  width: 65px;
   height: 4px;
-  margin: 20px auto 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #8be000, #d2ff6a);
+
+  margin: 15px auto 0;
+
+  border-radius: 10px;
+  background: #8be000;
 }
 
-/* =========================================
-   DISTRIBUCIÓN DE TARJETAS
-========================================= */
+/* ==========================================
+   3. DISTRIBUCIÓN DE INSTRUCTORES
+========================================== */
 
-.instructores-grid {
+.instructores .instructores-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: clamp(24px, 3.5vw, 48px);
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  align-items: end;
+  justify-items: center;
+
   width: 100%;
-  max-width: 1320px;
+  max-width: 1550px;
+
+  gap: var(--separacion);
   margin: 0 auto;
 }
 
-/* =========================================
-   TARJETA DEL INSTRUCTOR
-========================================= */
+/* ==========================================
+   4. TARJETAS
+========================================== */
 
-.instructor-card {
-  --acento: #8be000;
+.instructores .instructor-card {
+  --acento: #b1ff00;
+
+  position: relative;
+  isolation: isolate;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+  max-width: var(--ancho-tarjeta);
   min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  border-radius: 0;
+
+  background: transparent;
+  color: #ffffff;
+
   text-align: center;
-  transition: transform 0.3s ease;
+  overflow: visible;
+
+  box-shadow: none;
+
+  transition: transform 0.35s ease;
 }
 
-.instructor-card.azul {
+/* ==========================================
+   5. COLORES POR INSTRUCTOR
+========================================== */
+
+/* Ricardo García */
+.instructores .instructor-card.verde {
+  --acento: #b1ff00;
+}
+
+/* Daniel Sánchez */
+.instructores .instructor-card.azul {
   --acento: #3984ff;
 }
 
-.instructor-card.naranja {
-  --acento: #ff9b38;
+/* Daniel García */
+.instructores .instructor-card.naranja {
+  --acento: #ff8708;
 }
 
-/* =========================================
-   FOTO Y MARCO
-========================================= */
+/* ==========================================
+   6. FOTOGRAFÍAS VERTICALES
+========================================== */
 
-.instructor-foto {
+.instructores .instructor-foto {
   position: relative;
-  z-index: 1;
-  width: min(100%, 285px);
-  height: clamp(260px, 27vw, 350px);
-  margin: 0 auto -1px;
-}
 
-.foto-marco {
-  position: absolute;
-  inset: 12px 12px 0;
-  padding: 8px;
-  overflow: hidden;
-  border: 1px solid color-mix(
-    in srgb,
-    var(--acento) 75%,
-    transparent
-  );
-  border-radius: 24px 24px 18px 18px;
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--acento) 15%, #171e27),
-    #10151b
-  );
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.18),
-    0 0 24px color-mix(
-      in srgb,
-      var(--acento) 9%,
-      transparent
-    );
-}
+  width: var(--ancho-foto);
+  max-width: 290px;
+  height: var(--alto-foto);
 
-.foto-marco img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px 16px 12px 12px;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(100%);
+  flex-shrink: 0;
+
+  margin: 0 auto;
+
+  border-radius: 36px 36px 0 0;
+  background: #080808;
+
+  /* IMPORTANTE:
+     Permite mostrar el ícono completo
+     fuera de la zona de la fotografía.
+  */
+  overflow: visible;
+
   transition:
     filter 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* ==========================================
+   7. MARCO DE LA FOTOGRAFÍA
+========================================== */
+
+.instructores .foto-marco {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 3px solid var(--acento);
+  border-bottom: none;
+  border-radius: 36px 36px 0 0;
+
+  background: #080808;
+
+  /* Solo la imagen se recorta */
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.25);
+
+  transition:
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* ==========================================
+   8. IMÁGENES
+========================================== */
+
+.instructores .foto-marco img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  filter: grayscale(100%);
+
+  transition:
+    filter 0.5s ease,
     transform 0.5s ease;
 }
 
-/* =========================================
-   ICONO SOBRE LA FOTO
-========================================= */
+/* ==========================================
+   9. CAPA DE COLOR
+========================================== */
 
-.instructor-icono {
+.instructores .foto-marco::after {
+  content: "";
+
   position: absolute;
-  bottom: -23px;
-  left: 50%;
-  display: grid;
-  place-items: center;
-  width: 58px;
-  height: 58px;
-  transform: translateX(-50%);
-  border: 4px solid #171e27;
-  border-radius: 50%;
+  inset: 0;
+
   background: var(--acento);
-  color: #10151b;
-  font-size: 29px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  transition:
-    box-shadow 0.3s ease,
-    background-color 0.3s ease;
+  mix-blend-mode: color;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.5s ease;
 }
 
-/* =========================================
-   INFORMACIÓN
-========================================= */
+/* ==========================================
+   10. PANEL GRIS DE INFORMACIÓN
+========================================== */
 
-.instructor-info {
+.instructores .instructor-info {
   position: relative;
+
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
-  padding: 38px 22px 28px;
-  border: 1px solid var(--borde);
-  border-top-color: color-mix(
-    in srgb,
-    var(--acento) 35%,
-    transparent
-  );
-  border-radius: 20px;
-  background: linear-gradient(
-    150deg,
-    rgba(31, 40, 51, 0.98),
-    rgba(20, 26, 34, 0.98)
-  );
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  justify-content: center;
+
+  width: 100%;
+  min-height: 155px;
+
+  margin: 0;
+  padding: 45px 20px 24px;
+
+  box-sizing: border-box;
+
+  border: 1px solid transparent;
+  border-radius: 30px;
+
+  background: var(--panel);
+  color: #ffffff;
+
+  text-align: center;
+
+  /* IMPORTANTE:
+     No debe cortar el ícono.
+  */
+  overflow: visible;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2);
+
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.instructor-info h3 {
+/* ==========================================
+   11. ICONOS - CORRECCIÓN PRINCIPAL
+========================================== */
+
+.instructores .instructor-icono {
+  position: absolute;
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  width: 62px;
+  height: 62px;
+
   margin: 0;
-  color: var(--texto);
-  font-size: clamp(18px, 1.7vw, 24px);
-  font-weight: 750;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
-}
 
-.nombre-linea {
-  flex-shrink: 0;
-  width: 56px;
-  height: 4px;
-  margin: 14px auto 16px;
-  border-radius: 999px;
+  border: 5px solid var(--panel);
+  border-radius: 50%;
+
   background: var(--acento);
-  box-shadow: 0 0 14px color-mix(
-    in srgb,
-    var(--acento) 25%,
-    transparent
-  );
+  color: #181818;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
 }
 
-.instructor-info p {
-  max-width: 340px;
+/* ICONO DENTRO DE LA FOTO */
+.instructores
+.instructor-foto > .instructor-icono {
+  left: 50%;
+  bottom: 0;
+
+  transform: translate(-50%, 50%);
+}
+
+/* ICONO DENTRO DEL PANEL */
+.instructores
+.instructor-info > .instructor-icono {
+  top: 0;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Tamaño del SVG */
+.instructores .instructor-icono svg {
+  display: block;
+
+  width: 52%;
+  height: 52%;
+}
+
+/* ==========================================
+   12. NOMBRE DEL INSTRUCTOR
+========================================== */
+
+.instructores .instructor-info h3 {
+  width: 100%;
+
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: clamp(23px, 1.8vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* Ocultar línea del diseño anterior */
+.instructores .nombre-linea {
+  display: none;
+}
+
+/* ==========================================
+   13. ESPECIALIDAD
+========================================== */
+
+.instructores .instructor-info p {
+  width: 100%;
+  max-width: 310px;
+
   margin: 0;
-  color: var(--texto-secundario);
-  font-size: 14px;
+
+  color: #ffffff;
+
+  font-size: clamp(15px, 1vw, 17px);
   font-weight: 400;
-  line-height: 1.75;
-  overflow-wrap: anywhere;
+  font-style: italic;
+  line-height: 1.4;
+
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
-/* =========================================
-   EFECTOS PARA DISPOSITIVOS CON MOUSE
-========================================= */
+/* ==========================================
+   14. EFECTOS AL PASAR EL CURSOR
+========================================== */
 
 @media (hover: hover) and (pointer: fine) {
-  .instructor-card:hover {
-    transform: translateY(-5px);
+
+  /* Elevación de tarjeta */
+  .instructores .instructor-card:hover {
+    transform: translateY(-8px);
   }
 
-  .instructor-card:hover .foto-marco img {
-    filter: grayscale(15%);
+  /* Fotografía a color */
+  .instructores
+  .instructor-card:hover
+  .foto-marco img {
+    filter: grayscale(0%);
     transform: scale(1.035);
   }
 
-  .instructor-card:hover .instructor-info {
+  /* Color representativo */
+  .instructores
+  .instructor-card:hover
+  .foto-marco::after {
+    opacity: 0.23;
+  }
+
+  /* Resplandor alrededor de la foto */
+  .instructores
+  .instructor-card:hover
+  .foto-marco {
+    box-shadow:
+      0 0 25px color-mix(
+        in srgb,
+        var(--acento) 55%,
+        transparent
+      ),
+      0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Panel gris con tono del instructor */
+  .instructores
+  .instructor-card:hover
+  .instructor-info {
+    background-color: color-mix(
+      in srgb,
+      var(--panel) 92%,
+      var(--acento)
+    );
+
     border-color: color-mix(
       in srgb,
-      var(--acento) 55%,
+      var(--acento) 45%,
       transparent
     );
+
     box-shadow:
-      0 20px 42px rgba(0, 0, 0, 0.3),
-      0 0 20px color-mix(
-        in srgb,
-        var(--acento) 7%,
-        transparent
-      );
+      0 15px 35px rgba(0, 0, 0, 0.28);
   }
 
-  .instructor-card:hover .instructor-icono {
-    box-shadow: 0 0 22px color-mix(
-      in srgb,
-      var(--acento) 35%,
-      transparent
-    );
-  }
-}
-
-/* =========================================
-   TABLETS Y LAPTOPS PEQUEÑAS
-========================================= */
-
-@media (max-width: 1024px) {
-  .instructores-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 34px 26px;
-    max-width: 800px;
+  /* Brillo del ícono */
+  .instructores
+  .instructor-card:hover
+  .instructor-icono {
+    box-shadow:
+      0 0 20px var(--acento);
   }
 
-  .instructor-foto {
-    width: min(100%, 280px);
-    height: clamp(260px, 35vw, 320px);
+  /* Hover para ícono en foto */
+  .instructores
+  .instructor-card:hover
+  .instructor-foto > .instructor-icono {
+    transform:
+      translate(-50%, 50%) scale(1.08);
   }
 
-  .instructor-info {
-    padding-right: 18px;
-    padding-left: 18px;
+  /* Hover para ícono en panel */
+  .instructores
+  .instructor-card:hover
+  .instructor-info > .instructor-icono {
+    transform:
+      translate(-50%, -50%) scale(1.08);
   }
 }
 
-/* =========================================
-   CELULARES
-========================================= */
+/* ==========================================
+   15. LAPTOPS
+========================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 1100px) {
+
   .instructores {
-    padding: 48px 18px 58px;
+    --ancho-tarjeta: 310px;
+    --alto-foto: 420px;
+    --separacion: 24px;
+
+    padding: 48px 3% 65px;
   }
 
-  .instructores-header {
+  .instructores .instructores-grid {
+    gap: var(--separacion);
+  }
+
+  .instructores .instructor-foto {
+    width: 79%;
+  }
+
+  .instructores .instructor-info {
+    min-height: 145px;
+
+    padding: 42px 14px 22px;
+    border-radius: 26px;
+  }
+
+  .instructores .instructor-info h3 {
+    font-size: 23px;
+  }
+
+  .instructores .instructor-info p {
+    font-size: 14px;
+  }
+
+  .instructores .instructor-icono {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ==========================================
+   16. TABLETS
+========================================== */
+
+@media (max-width: 850px) {
+
+  .instructores {
+    --ancho-tarjeta: 320px;
+    --alto-foto: 390px;
+
+    min-height: auto;
+    padding: 55px 20px 70px;
+  }
+
+  .instructores .instructores-header {
     margin-bottom: 42px;
   }
 
-  .instructores-header span {
-    margin-bottom: 11px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
+  .instructores .instructores-header h2 {
+    font-size: 38px;
   }
 
-  .instructores-header h2 {
-    font-size: clamp(28px, 8vw, 38px);
-    letter-spacing: -0.025em;
+  .instructores .instructores-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    max-width: 700px;
+
+    gap: 55px 26px;
   }
 
-  .instructores-header h2::after {
-    margin-top: 16px;
+  .instructores .instructor-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
-  .instructores-grid {
+  .instructores .instructor-info h3 {
+    font-size: 23px;
+  }
+
+  .instructores .instructor-info p {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   17. CELULARES
+========================================== */
+
+@media (max-width: 600px) {
+
+  .instructores {
+    --ancho-tarjeta: 330px;
+    --alto-foto: 410px;
+
+    min-height: auto;
+    padding: 48px 18px 65px;
+  }
+
+  .instructores .instructores-header {
+    margin-bottom: 42px;
+  }
+
+  .instructores .instructores-header h2 {
+    font-size: 32px;
+  }
+
+  .instructores .instructores-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 38px;
-    max-width: 380px;
+
+    max-width: 350px;
+    gap: 55px;
   }
 
-  .instructor-card {
+  .instructores .instructor-card,
+  .instructores .instructor-card:last-child {
+    grid-column: auto;
+    justify-self: center;
+
     width: 100%;
+    max-width: var(--ancho-tarjeta);
   }
 
-  .instructor-foto {
-    width: min(100%, 265px);
-    height: clamp(285px, 82vw, 330px);
+  .instructores .instructor-foto {
+    width: 78%;
+    height: var(--alto-foto);
   }
 
-  .foto-marco {
-    inset: 10px 10px 0;
-    padding: 7px;
-    border-radius: 21px 21px 16px 16px;
+  .instructores .instructor-info {
+    min-height: 150px;
+    padding: 42px 16px 24px;
   }
 
-  .foto-marco img {
-    border-radius: 14px 14px 10px 10px;
+  .instructores .instructor-info h3 {
+    font-size: 24px;
   }
 
-  .instructor-icono {
-    bottom: -21px;
-    width: 54px;
-    height: 54px;
-    font-size: 26px;
+  .instructores .instructor-info p {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   18. CELULARES PEQUEÑOS
+========================================== */
+
+@media (max-width: 380px) {
+
+  .instructores {
+    --ancho-tarjeta: 290px;
+    --alto-foto: 360px;
+
+    padding: 42px 14px 55px;
   }
 
-  .instructor-info {
-    padding: 34px 20px 24px;
-    border-radius: 18px;
-  }
-
-  .instructor-info h3 {
+  .instructores .instructor-info h3 {
     font-size: 21px;
   }
 
-  .nombre-linea {
-    width: 48px;
-    height: 4px;
-    margin: 12px auto;
-  }
-
-  .instructor-info p {
+  .instructores .instructor-info p {
     font-size: 14px;
-    line-height: 1.7;
+  }
+
+  .instructores .instructor-icono {
+    width: 52px;
+    height: 52px;
   }
 }
 
-/* =========================================
-   CELULARES MUY PEQUEÑOS
-========================================= */
-
-@media (max-width: 360px) {
-  .instructores {
-    padding-right: 14px;
-    padding-left: 14px;
-  }
-
-  .instructores-grid {
-    gap: 32px;
-  }
-
-  .instructor-foto {
-    width: min(100%, 235px);
-    height: 275px;
-  }
-
-  .instructor-info {
-    padding-right: 14px;
-    padding-left: 14px;
-  }
-
-  .instructor-info h3 {
-    font-size: 19px;
-  }
-
-  .instructor-info p {
-    font-size: 13px;
-  }
-}
-
-/* =========================================
-   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
-========================================= */
+/* ==========================================
+   19. ACCESIBILIDAD
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .instructor-card,
-  .instructor-info,
-  .foto-marco img,
-  .instructor-icono {
+
+  .instructores .instructor-card,
+  .instructores .instructor-foto,
+  .instructores .foto-marco,
+  .instructores .foto-marco img,
+  .instructores .foto-marco::after,
+  .instructores .instructor-info,
+  .instructores .instructor-icono {
     transition: none;
-  }
-
-  .instructor-card:hover {
-    transform: none;
-  }
-
-  .instructor-card:hover .foto-marco img {
-    transform: none;
   }
 }

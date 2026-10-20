@@ -1,44 +1,65 @@
 
 /* ==========================================
-   UBICACIÓN - SCALE UP
-   Diseño profesional y responsivo
+   SCALE UP - UBICACIÓN PREMIUM
+   DISEÑO MODERNO Y RESPONSIVE
+========================================== */
+
+/* ==========================================
+   1. SECCIÓN PRINCIPAL
 ========================================== */
 
 .ubicacion {
-  --naranja: #f4772b;
-  --naranja-oscuro: #dc5f19;
-  --texto: #242b35;
-  --texto-secundario: #606b78;
+  --naranja: var(--brand, #ff4b16);
+  --naranja-oscuro: #e03a08;
+  --texto: #292a29;
+  --texto-secundario: #626b75;
   --superficie: #ffffff;
 
   position: relative;
   isolation: isolate;
 
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  display: flex;
   align-items: center;
-  gap: clamp(28px, 4vw, 64px);
+  justify-content: center;
 
   width: 100%;
-  min-height: 400px;
-  box-sizing: border-box;
-  padding: clamp(42px, 5vw, 72px) clamp(22px, 6vw, 90px);
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
 
+  margin: 0;
+  padding: 65px 5%;
+
+  box-sizing: border-box;
   overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 15% 50%,
-      rgba(244, 119, 43, 0.055),
-      transparent 45%
-    ),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 
   color: var(--texto);
-  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 45%,
+      rgba(255, 75, 22, 0.045),
+      transparent 48%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f7f8fa 100%
+    );
+
+  font-family:
+    "Inter", "Segoe UI",
+    Arial, Helvetica, sans-serif;
+}
+
+.ubicacion *,
+.ubicacion *::before,
+.ubicacion *::after {
+  box-sizing: border-box;
 }
 
 /* ==========================================
-   FONDO DECORATIVO
+   2. DECORACIÓN DEL FONDO
 ========================================== */
 
 .ubicacion::before {
@@ -46,28 +67,50 @@
 
   position: absolute;
   z-index: -1;
-  top: -200px;
+
+  top: 50%;
   left: 48%;
 
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 
   color: rgba(28, 40, 55, 0.025);
+
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(400px, 55vw, 720px);
+  font-size: clamp(350px, 47vw, 700px);
   font-weight: 900;
-  line-height: 1;
+  line-height: 0.9;
 
   pointer-events: none;
   user-select: none;
 }
 
 /* ==========================================
-   MAPA
+   3. DISTRIBUCIÓN DE COLUMNAS
+========================================== */
+
+.ubicacion-contenido {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(0, 0.9fr);
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 1500px;
+
+  gap: clamp(28px, 4vw, 65px);
+
+  margin: 0 auto;
+}
+
+/* ==========================================
+   4. COLUMNA IZQUIERDA - MAPA
 ========================================== */
 
 .ubicacion-mapa {
   position: relative;
-  z-index: 1;
 
   display: flex;
   flex-direction: column;
@@ -76,419 +119,619 @@
 
   width: 100%;
   min-width: 0;
+
+  padding: 25px;
+
+  border: 1px solid rgba(35, 45, 55, 0.08);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 18px 45px rgba(25, 35, 45, 0.07),
+    0 3px 10px rgba(25, 35, 45, 0.025);
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
+
+/* ==========================================
+   5. IMAGEN DEL MAPA
+========================================== */
 
 .mapa-imagen {
   display: block;
 
   width: 100%;
-  max-width: 560px;
-  height: clamp(260px, 30vw, 380px);
-  box-sizing: border-box;
+  max-width: 640px;
+
+  height: clamp(350px, 39vw, 560px);
+
+  margin: 0 auto;
 
   object-fit: contain;
   object-position: center;
 
-  filter: drop-shadow(0 12px 18px rgba(25, 35, 45, 0.07));
-
-  transition: filter 0.3s ease;
+  filter: drop-shadow(
+    0 12px 18px rgba(25, 35, 45, 0.07)
+  );
 }
 
+/* Texto debajo del mapa */
 .mapa-pie {
-  max-width: 480px;
-  margin: 12px 0 0;
-  padding: 0 10px;
+  width: 100%;
+  max-width: 500px;
 
-  color: #7b8490;
-  font-size: 12px;
+  margin: 16px 0 0;
+
+  color: #737e88;
+
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.6;
+  font-style: italic;
+
   text-align: center;
+  text-wrap: balance;
 }
 
 /* ==========================================
-   INFORMACIÓN
+   6. COLUMNA DERECHA
 ========================================== */
 
 .ubicacion-informacion {
-  position: relative;
-  z-index: 1;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: clamp(30px, 3.5vw, 44px);
 
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
 
-  text-align: center;
+  gap: 25px;
 }
 
-/* Bloques independientes */
+/* ==========================================
+   7. TARJETAS DE INFORMACIÓN
+========================================== */
 
 .ubicacion-bloque,
 .ubicacion-hotel {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
   width: 100%;
-  max-width: 430px;
   min-width: 0;
-  box-sizing: border-box;
+
+  margin: 0;
+  padding: 30px 34px;
+
+  border: 1px solid rgba(35, 45, 55, 0.08);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 12px 35px rgba(25, 35, 45, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-/* Detalle superior decorativo */
-
+/* Línea naranja superior */
 .ubicacion-bloque::before,
 .ubicacion-hotel::before {
   content: "";
+
   display: block;
 
-  width: 42px;
-  height: 3px;
-  margin-bottom: 15px;
+  width: 48px;
+  height: 4px;
+
+  margin-bottom: 18px;
 
   border-radius: 999px;
   background: var(--naranja);
 }
 
 /* ==========================================
-   TÍTULOS
+   8. ETIQUETA SUPERIOR
 ========================================== */
 
-.ubicacion-bloque h2,
-.ubicacion-hotel h2 {
-  margin: 0 0 12px;
+.ubicacion-etiqueta {
+  display: block;
 
-  color: var(--texto);
-  font-size: clamp(19px, 1.8vw, 25px);
+  margin-bottom: 12px;
+
+  color: var(--naranja-oscuro);
+
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.3;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   9. TÍTULO UBICACIÓN
+========================================== */
+
+.ubicacion-bloque h2 {
+  margin: 0 0 16px;
+
+  color: var(--naranja);
+
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
 
   text-wrap: balance;
 }
 
-/* Resalte de color en los títulos */
-
-.ubicacion-bloque h2 strong,
-.ubicacion-hotel h2 strong {
-  color: var(--naranja);
-}
-
 /* ==========================================
-   DESCRIPCIONES
+   10. PÁRRAFOS
 ========================================== */
 
 .ubicacion-bloque p,
 .ubicacion-hotel p {
   width: 100%;
-  max-width: 360px;
+
   margin: 0;
 
   color: var(--texto-secundario);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.8;
 
-  overflow-wrap: anywhere;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* Introducción */
+.ubicacion-bloque p {
+  max-width: 500px;
+  font-size: 18px;
 }
 
 /* ==========================================
-   LOGOTIPO DEL HOTEL
+   11. LOGOTIPO DEL HOTEL
 ========================================== */
 
 .ubicacion-hotel-logo {
   display: block;
 
-  width: clamp(70px, 7vw, 92px);
-  height: clamp(70px, 7vw, 92px);
-  margin: 0 auto 16px;
+  width: 115px;
+  height: 115px;
+
+  max-width: 100%;
+
+  margin: 0 0 15px;
 
   object-fit: contain;
+  object-position: left center;
 
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease;
 }
 
 /* ==========================================
-   BOTÓN DE UBICACIÓN
+   12. ETIQUETA DEL HOTEL
+========================================== */
+
+.ubicacion-hotel-etiqueta {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--naranja-oscuro);
+
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   13. NOMBRE DEL HOTEL
+========================================== */
+
+.ubicacion-hotel h3 {
+  width: 100%;
+
+  margin: 0 0 12px;
+
+  color: var(--texto);
+
+  font-size: clamp(25px, 2.3vw, 30px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* Lugar geográfico */
+.ubicacion-hotel .ubicacion-hotel-destino {
+  margin: 0 0 14px;
+
+  color: var(--naranja-oscuro);
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   14. BOTÓN DE UBICACIÓN
 ========================================== */
 
 .ubicacion-boton {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
 
-  min-height: 44px;
+  min-height: 52px;
   max-width: 100%;
-  margin-top: 20px;
-  padding: 11px 23px;
-  box-sizing: border-box;
 
-  border: 1.5px solid var(--naranja);
+  margin-top: 24px;
+  padding: 14px 26px;
+
+  border: 2px solid var(--naranja);
   border-radius: 999px;
 
-  background: var(--superficie);
-  color: var(--naranja-oscuro);
+  background: var(--naranja);
+  color: #ffffff;
 
   font-family: inherit;
-  font-size: 13px;
-  font-weight: 750;
-  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+
   text-align: center;
   text-decoration: none;
 
-  overflow-wrap: anywhere;
   cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(255, 75, 22, 0.18);
 
   transition:
     background-color 0.25s ease,
-    color 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease;
 }
 
-/* Teclado: accesibilidad */
+.ubicacion-boton span:last-child {
+  font-size: 22px;
+  line-height: 1;
+}
 
+/* Accesibilidad del botón */
 .ubicacion-boton:focus-visible {
-  outline: 3px solid rgba(244, 119, 43, 0.35);
+  outline: 3px solid var(--naranja);
   outline-offset: 4px;
 }
 
 /* ==========================================
-   TABLETS Y LAPTOPS PEQUEÑAS
+   15. EFECTOS HOVER
 ========================================== */
 
-@media (max-width: 1024px) {
-  .ubicacion {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 28px;
-    padding: 45px 4%;
+@media (hover: hover) and (pointer: fine) {
+
+  /* Elevación suave del mapa */
+  .ubicacion-mapa:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+      0 22px 50px rgba(25, 35, 45, 0.1);
   }
 
-  .mapa-imagen {
-    height: clamp(250px, 32vw, 320px);
+  /* Tarjetas de información */
+  .ubicacion-bloque:hover,
+  .ubicacion-hotel:hover {
+    transform: translateY(-4px);
+
+    border-color:
+      rgba(255, 75, 22, 0.18);
+
+    box-shadow:
+      0 18px 42px rgba(25, 35, 45, 0.09);
   }
 
-  .ubicacion-informacion {
-    gap: 32px;
+  /* Logo del hotel */
+  .ubicacion-hotel:hover
+  .ubicacion-hotel-logo {
+    transform: scale(1.04);
   }
 
-  .ubicacion-bloque h2,
-  .ubicacion-hotel h2 {
-    font-size: 20px;
-  }
+  /* Botón */
+  .ubicacion-boton:hover {
+    background: var(--naranja-oscuro);
+    border-color: var(--naranja-oscuro);
 
-  .ubicacion-bloque p,
-  .ubicacion-hotel p {
-    max-width: 320px;
-    font-size: 13px;
-  }
+    transform: translateY(-2px);
 
-  .ubicacion-boton {
-    padding-right: 19px;
-    padding-left: 19px;
+    box-shadow:
+      0 12px 26px rgba(255, 75, 22, 0.25);
   }
 }
 
 /* ==========================================
-   TABLETS VERTICALES Y MÓVILES GRANDES
+   16. LAPTOPS
+   HASTA 1200PX
 ========================================== */
 
-@media (max-width: 760px) {
-  .ubicacion {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+@media (max-width: 1200px) {
 
-    min-height: auto;
-    padding: 42px 28px 52px;
+  .ubicacion {
+    padding: 50px 4%;
   }
 
-  .ubicacion::before {
-    top: -30px;
-    left: 50%;
-    font-size: 430px;
+  .ubicacion-contenido {
+    gap: 30px;
+  }
+
+  .ubicacion-bloque,
+  .ubicacion-hotel {
+    padding: 26px;
+  }
+
+  .ubicacion-bloque h2 {
+    font-size: 34px;
+  }
+
+  .ubicacion-hotel h3 {
+    font-size: 26px;
+  }
+
+  .ubicacion-bloque p,
+  .ubicacion-hotel p {
+    font-size: 16px;
+  }
+
+  .mapa-imagen {
+    height: clamp(300px, 38vw, 475px);
+  }
+
+  .ubicacion-hotel-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ==========================================
+   17. TABLETS
+   HASTA 900PX
+========================================== */
+
+@media (max-width: 900px) {
+
+  .ubicacion {
+    height: auto;
+    min-height: 0;
+
+    padding: 55px 24px 65px;
+  }
+
+  .ubicacion-contenido {
+    grid-template-columns: minmax(0, 1fr);
+
+    max-width: 700px;
+    gap: 28px;
   }
 
   .ubicacion-mapa {
-    max-width: 560px;
-    margin: 0 auto;
+    padding: 22px;
   }
 
   .mapa-imagen {
     width: 100%;
     height: auto;
-    max-height: 360px;
-    aspect-ratio: 4 / 3;
+    max-height: 470px;
   }
 
   .mapa-pie {
-    margin-top: 8px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .ubicacion-informacion {
-    gap: 36px;
+    gap: 24px;
   }
 
   .ubicacion-bloque,
   .ubicacion-hotel {
-    max-width: 480px;
+    padding: 30px;
   }
 
-  .ubicacion-bloque h2,
-  .ubicacion-hotel h2 {
-    font-size: 22px;
+  .ubicacion-bloque h2 {
+    font-size: 36px;
+  }
+
+  .ubicacion-hotel h3 {
+    font-size: 28px;
   }
 
   .ubicacion-bloque p,
   .ubicacion-hotel p {
-    max-width: 390px;
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .ubicacion-hotel-logo {
-    width: 82px;
-    height: 82px;
+    width: 110px;
+    height: 110px;
   }
 }
 
 /* ==========================================
-   CELULARES
+   18. CELULARES
+   HASTA 600PX
 ========================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+
   .ubicacion {
-    gap: 24px;
-    padding: 34px 20px 42px;
+    padding: 40px 18px 55px;
   }
 
   .ubicacion::before {
-    top: 10px;
-    font-size: 340px;
+    top: 35%;
+    left: 50%;
+    font-size: 320px;
+  }
+
+  .ubicacion-contenido {
+    gap: 24px;
+  }
+
+  /* Mapa */
+  .ubicacion-mapa {
+    padding: 15px;
+    border-radius: 18px;
   }
 
   .mapa-imagen {
-    max-height: 290px;
-    aspect-ratio: 1 / 0.85;
+    width: 100%;
+    height: auto;
+    max-height: 350px;
   }
 
   .mapa-pie {
-    max-width: 320px;
-    font-size: 10px;
-    line-height: 1.6;
+    margin-top: 12px;
+    font-size: 12px;
   }
 
+  /* Información */
   .ubicacion-informacion {
-    gap: 32px;
+    gap: 20px;
   }
 
-  .ubicacion-bloque::before,
-  .ubicacion-hotel::before {
-    width: 36px;
+  .ubicacion-bloque,
+  .ubicacion-hotel {
+    padding: 25px 22px;
+    border-radius: 18px;
+  }
+
+  /* Encabezado */
+  .ubicacion-etiqueta {
+    font-size: 11px;
+  }
+
+  .ubicacion-bloque h2 {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  /* Párrafos */
+  .ubicacion-bloque p,
+  .ubicacion-hotel p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* Hotel */
+  .ubicacion-hotel-logo {
+    width: 100px;
+    height: 100px;
     margin-bottom: 12px;
   }
 
-  .ubicacion-bloque h2,
-  .ubicacion-hotel h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
+  .ubicacion-hotel-etiqueta {
+    font-size: 11px;
   }
 
-  .ubicacion-bloque p,
-  .ubicacion-hotel p {
-    max-width: 340px;
-    font-size: 13px;
-    line-height: 1.75;
+  .ubicacion-hotel h3 {
+    font-size: 25px;
+  }
+
+  /* Botón */
+  .ubicacion-boton {
+    min-height: 50px;
+    padding: 13px 22px;
+
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   19. CELULARES PEQUEÑOS
+   HASTA 380PX
+========================================== */
+
+@media (max-width: 380px) {
+
+  .ubicacion {
+    padding: 32px 14px 45px;
+  }
+
+  .ubicacion-mapa {
+    padding: 12px;
+  }
+
+  .mapa-pie {
+    font-size: 11px;
+  }
+
+  .ubicacion-bloque,
+  .ubicacion-hotel {
+    padding: 22px 18px;
+  }
+
+  .ubicacion-bloque h2 {
+    font-size: 29px;
+  }
+
+  .ubicacion-hotel h3 {
+    font-size: 23px;
   }
 
   .ubicacion-hotel-logo {
-    width: 74px;
-    height: 74px;
-    margin-bottom: 13px;
+    width: 90px;
+    height: 90px;
   }
 
   .ubicacion-boton {
-    width: auto;
-    min-height: 44px;
-    margin-top: 16px;
-    padding: 11px 21px;
-    font-size: 12px;
+    width: 100%;
+    padding: 12px 15px;
+
+    font-size: 14px;
   }
 }
 
 /* ==========================================
-   CELULARES MUY PEQUEÑOS
-========================================== */
-
-@media (max-width: 360px) {
-  .ubicacion {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  .ubicacion::before {
-    font-size: 290px;
-  }
-
-  .mapa-imagen {
-    max-height: 245px;
-  }
-
-  .ubicacion-bloque h2,
-  .ubicacion-hotel h2 {
-    font-size: 18px;
-  }
-
-  .ubicacion-bloque p,
-  .ubicacion-hotel p {
-    font-size: 12px;
-  }
-
-  .ubicacion-boton {
-    max-width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
-    font-size: 11px;
-  }
-}
-
-/* ==========================================
-   EFECTOS PARA DISPOSITIVOS CON MOUSE
-========================================== */
-
-@media (hover: hover) and (pointer: fine) {
-  .ubicacion-boton:hover {
-    transform: translateY(-2px);
-    border-color: var(--naranja-oscuro);
-    background: var(--naranja);
-    color: #ffffff;
-    box-shadow: 0 7px 18px rgba(244, 119, 43, 0.22);
-  }
-
-  .ubicacion-hotel-logo:hover {
-    transform: scale(1.04);
-  }
-}
-
-/* ==========================================
-   MOVIMIENTO REDUCIDO
+   20. ACCESIBILIDAD
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .ubicacion-boton,
+
+  .ubicacion-mapa,
+  .ubicacion-bloque,
+  .ubicacion-hotel,
   .ubicacion-hotel-logo,
-  .mapa-imagen {
+  .ubicacion-boton {
     transition: none;
   }
 
-  .ubicacion-boton:hover,
-  .ubicacion-hotel-logo:hover {
+  .ubicacion-mapa:hover,
+  .ubicacion-bloque:hover,
+  .ubicacion-hotel:hover,
+  .ubicacion-hotel:hover
+  .ubicacion-hotel-logo,
+  .ubicacion-boton:hover {
     transform: none;
   }
 }
