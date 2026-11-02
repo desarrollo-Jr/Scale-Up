@@ -1,12 +1,9 @@
-﻿
-import "../assets/styles/ubicacion.css";
-
+import "../../assets/styles/home/ubicacion.css";
 const BASE_URL = import.meta.env.BASE_URL;
 
-const hotelNombre = "Hotel Reserva Villas de Cuetzalan";
+const hotelNombre =
+  "Hotel Reserva Villas de Cuetzalan";
 
-// Abre una búsqueda del hotel en Google Maps.
-// No presupone una ubicación exacta verificada.
 const hotelMapsUrl =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent(
@@ -21,12 +18,10 @@ export default function Ubicacion() {
       aria-labelledby="ubicacion-titulo"
     >
       <div className="ubicacion-contenido">
-
-        {/* COLUMNA IZQUIERDA: MAPA */}
         <div className="ubicacion-mapa">
           <img
             src={`${BASE_URL}images/mapa.png`}
-            alt="Mapa ilustrativo de Puebla que señala Cuetzalan"
+            alt="Mapa ilustrativo de Cuetzalan, Puebla"
             className="mapa-imagen"
             loading="lazy"
             decoding="async"
@@ -38,10 +33,7 @@ export default function Ubicacion() {
           </p>
         </div>
 
-        {/* COLUMNA DERECHA: INFORMACIÓN */}
         <div className="ubicacion-informacion">
-
-          {/* INTRODUCCIÓN */}
           <div className="ubicacion-bloque">
             <span className="ubicacion-etiqueta">
               EL DESTINO DE TU EXPERIENCIA
@@ -59,9 +51,7 @@ export default function Ubicacion() {
             </p>
           </div>
 
-          {/* INFORMACIÓN DEL HOTEL */}
           <div className="ubicacion-hotel">
-
             <img
               src={`${BASE_URL}images/logo-villas.webp`}
               alt="Logotipo de Reserva Villas de Cuetzalan"
@@ -82,9 +72,8 @@ export default function Ubicacion() {
 
             <p>
               Consulta la ubicación del hotel
-              y prepara tu llegada para
-              disfrutar de la experiencia
-              Scale Up.
+              y prepara tu llegada para disfrutar
+              de la experiencia Scale Up.
             </p>
 
             <a
@@ -92,13 +81,11 @@ export default function Ubicacion() {
               href={hotelMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Buscar Hotel Reserva Villas de Cuetzalan en Google Maps (abre una nueva pestaña)"
             >
               <span>Cómo llegar al hotel</span>
               <span aria-hidden="true">↗</span>
             </a>
           </div>
-
         </div>
       </div>
     </section>

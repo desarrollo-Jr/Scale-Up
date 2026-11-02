@@ -1,26 +1,22 @@
-﻿
-import {
-  PersonSimpleHike,
-  Brain,
-  FlowerLotus,
-} from "@phosphor-icons/react";
+import "../../assets/styles/home/instructores.css";
+import { PersonSimpleHike, Brain, FlowerLotus } from "@phosphor-icons/react";
 
-import "../assets/styles/instructores.css";
+const BASE_URL = import.meta.env.BASE_URL;
 
 const instructores = [
   {
     nombre: "Ricardo García",
     especialidad:
       "Coach ejecutivo • Firewalker • Empresario",
-    imagen: `${import.meta.env.BASE_URL}images/instructores/ricardo-garcia.jpeg`,
+    imagen: `${BASE_URL}images/instructores/ricardo-garcia.jpeg`,
     color: "verde",
     Icono: PersonSimpleHike,
   },
   {
     nombre: "Daniel Sánchez",
     especialidad:
-      "Maestro en Geomancia Tabular",
-    imagen: `${import.meta.env.BASE_URL}images/instructores/daniel-sanchez.jpeg`,
+      "Maestro en Geomancia Taoísta",
+    imagen: `${BASE_URL}images/instructores/daniel-sanchez.jpeg`,
     color: "azul",
     Icono: Brain,
   },
@@ -28,7 +24,7 @@ const instructores = [
     nombre: "Daniel García",
     especialidad:
       "Life Coach • Facilitador de consciencia",
-    imagen: `${import.meta.env.BASE_URL}images/instructores/daniel-garcia.jpeg`,
+    imagen: `${BASE_URL}images/instructores/daniel-garcia.jpeg`,
     color: "naranja",
     Icono: FlowerLotus,
   },
@@ -37,7 +33,7 @@ const instructores = [
 export default function Instructores() {
   return (
     <section
-      className="instructores"
+      className="instructores section-anchor"
       id="instructores"
       aria-labelledby="instructores-titulo"
     >
@@ -47,7 +43,7 @@ export default function Instructores() {
         </span>
 
         <h2 id="instructores-titulo">
-          INSTRUCTORES
+          INSTRUCTORES&#x20;
         </h2>
 
         <div
@@ -65,7 +61,6 @@ export default function Instructores() {
               key={instructor.nombre}
               className={`instructor-card ${instructor.color}`}
             >
-              {/* Fotografía */}
               <div className="instructor-foto">
                 <div className="foto-marco">
                   <img
@@ -77,7 +72,6 @@ export default function Instructores() {
                 </div>
               </div>
 
-              {/* Información */}
               <div className="instructor-info">
                 <div
                   className="instructor-icono"
@@ -96,7 +90,9 @@ export default function Instructores() {
                   aria-hidden="true"
                 />
 
-                <p>{instructor.especialidad}</p>
+                <p>
+                  {instructor.especialidad}
+                </p>
               </div>
             </article>
           );

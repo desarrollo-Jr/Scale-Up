@@ -1,6 +1,4 @@
-﻿
-import "../assets/styles/requisitos.css";
-
+import "../../assets/styles/home/requisitos.css";
 export default function Requisitos() {
   return (
     <section
@@ -11,5 +9,3 @@ export default function Requisitos() {
     </section>
   );
 }
-
-

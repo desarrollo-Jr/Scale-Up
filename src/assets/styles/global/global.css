@@ -60,3 +60,27 @@ a {
 .section-anchor {
   scroll-margin-top: 75px;
 }
+
+
+
+/* ==========================================
+   RESPONSIVE - TABLETS
+========================================== */
+
+@media (max-width: 900px) {
+  .marca-agua-global {
+    background-size: 80vw auto;
+    opacity: 0.08;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - CELULARES
+========================================== */
+
+@media (max-width: 600px) {
+  .marca-agua-global {
+    background-size: 90vw auto;
+    opacity: 0.07;
+  }
+}

@@ -1,3 +1,4 @@
+/*--------Requisitos---------*/
 
 /* ========================================
    SECCIÓN REQUISITOS
@@ -116,7 +117,7 @@
 
   display: block;
 
-  width: clamp(100px, 6vw, 84px);
+  width: 100px; /* Equivale al clamp original, cuyos límites estaban invertidos. */
   height: 4px;
 
   margin: clamp(18px, 2.5vw, 28px) auto 0;
@@ -189,7 +190,7 @@
   }
 
   .requisitos h2::after {
-    width: 58px;
+    width: 58px;     
     height: 3px;
     margin-top: 20px;
   }

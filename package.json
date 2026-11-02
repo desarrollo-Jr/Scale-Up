@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "tsc && vite build",
-  "preview": "vite preview",
-  "deploy": "npm run build && gh-pages -d dist"
-},
+  "scripts": {
+    "predev": "node scripts/generar-carrusel.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/generar-carrusel.mjs",
+    "build": "tsc && vite build",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.2",
     "gh-pages": "^6.3.0",
@@ -19,6 +20,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-icons": "^5.7.0"
+    "react-icons": "^5.7.0",
+    "react-router": "^7.18.5"
   }
 }

@@ -1,0 +1,809 @@
+/*-----------Contacto-----------*/
+
+/* =====================================================
+   REGISTRO / CONTACTO — SCALE UP
+   Distribución equilibrada, manteniendo el diseño actual
+   Reemplaza únicamente los estilos anteriores de Registro.
+===================================================== */
+
+.registro {
+  --registro-naranja: #f4772b;
+  --registro-texto: #171717;
+  --registro-borde: #cfd6df;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "encabezado"
+    "contenido"
+    "datos";
+  row-gap: 48px;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 64px clamp(20px, 5vw, 90px) 62px;
+  background: #ebeae8;
+  color: var(--registro-texto);
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* Encabezado: centrado sobre las DOS columnas */
+.registro > .registro-header {
+  grid-area: encabezado;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.registro .registro-header h1,
+.registro .registro-header h2 {
+  margin: 0 0 8px;
+  color: var(--registro-naranja);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.registro .registro-header p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Contenido: texto izquierda / formulario derecha */
+.registro > .registro-contenido {
+  grid-area: contenido;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 100px);
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.registro .registro-contenido > .registro-copy {
+  grid-column: 1;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  text-align: center;
+}
+
+.registro .registro-copy h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.3vw, 32px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111;
+}
+
+.registro .registro-llamanos {
+  margin: 5px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #071d36;
+}
+
+.registro .registro-descripcion {
+  max-width: 370px;
+  margin: 26px auto 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #363636;
+  text-align: center;
+}
+
+/* Formulario: conserva los campos pero gana proporción */
+.registro .registro-contenido > .registro-form {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+  max-width: 490px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.registro .registro-form > input:not([type="checkbox"]):not([type="radio"]),
+.registro .registro-form > textarea,
+.registro .registro-form > select,
+.registro .registro-form .registro-campo select,
+.registro .registro-form .registro-campo-objetivo textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--registro-borde);
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+  color: #242424;
+  font: inherit;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.registro .registro-form > textarea,
+.registro .registro-form .registro-campo-objetivo textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.registro .registro-form input::placeholder,
+.registro .registro-form textarea::placeholder {
+  color: #8490a0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.registro .registro-form > input:focus,
+.registro .registro-form > textarea:focus,
+.registro .registro-form > select:focus,
+.registro .registro-form .registro-campo select:focus,
+.registro .registro-form .registro-campo-objetivo textarea:focus {
+  border-color: var(--registro-naranja);
+  box-shadow: 0 0 0 3px rgba(244, 119, 43, .13);
+}
+
+.registro .registro-campo,
+.registro .registro-campo-objetivo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.registro .registro-campo label,
+.registro .registro-campo-objetivo label {
+  color: #252525;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.registro .registro-form select {
+  cursor: pointer;
+}
+
+.registro .registro-form > button[type="submit"] {
+  align-self: flex-start;
+  width: auto;
+  min-height: 46px;
+  margin: 2px 0 0;
+  padding: 11px 27px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--registro-naranja);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.registro .registro-form > button[type="submit"]:hover {
+  background: #de6118;
+  transform: translateY(-1px);
+}
+
+.registro .registro-form .form-message {
+  margin: 0;
+  color: #414141;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Datos inferiores: 1 dato centrado o 3 repartidos */
+.registro > .registro-datos {
+  grid-area: datos;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.registro .registro-dato {
+  display: flex;
+  flex: 1 1 230px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 330px;
+  min-width: 0;
+  min-height: 105px;
+  margin: 0;
+  padding: 12px 16px;
+  text-align: center;
+  border: 0;
+}
+
+.registro .registro-icono {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 0 0 14px;
+  color: #111;
+  font-size: 35px;
+}
+
+.registro .registro-dato p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #303030;
+  overflow-wrap: anywhere;
+}
+
+.registro .registro-dato a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.registro .registro-dato a:hover {
+  color: var(--registro-naranja);
+}
+
+/* Tablets y celulares: evita desplazamiento horizontal */
+@media (max-width: 800px) {
+  .registro {
+    padding: 46px 20px 42px;
+    row-gap: 30px;
+  }
+
+  .registro > .registro-contenido {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .registro .registro-contenido > .registro-copy,
+  .registro .registro-contenido > .registro-form {
+    grid-column: 1;
+    max-width: 520px;
+    justify-self: center;
+  }
+
+  .registro .registro-descripcion {
+    margin-top: 16px;
+  }
+
+  .registro > .registro-datos {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .registro { padding: 36px 16px 34px; }
+  .registro .registro-form > button[type="submit"] {
+    width: 100%;
+    align-self: stretch;
+  }
+  .registro .registro-dato {
+    flex-basis: 100%;
+    max-width: 440px;
+    min-height: 0;
+    padding: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registro .registro-form > button[type="submit"] {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   SCALE UP - CENTRADO DE CONTACTO
+
+========================================== */
+
+/* SECCIÓN COMPLETA */
+.registro {
+  display: grid !important;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-areas:
+    "encabezado"
+    "contenido"
+    "datos" !important;
+
+  justify-items: center !important;
+
+  width: 100vw !important;
+  max-width: none !important;
+  min-height: auto !important;
+
+  margin: 0 !important;
+  padding: 60px 5% 50px !important;
+}
+
+/* TÍTULO CENTRADO */
+.registro > .registro-header {
+  grid-area: encabezado !important;
+
+  width: 100% !important;
+  max-width: 1120px !important;
+
+  margin: 0 auto 45px !important;
+  text-align: center !important;
+}
+
+/* DOS COLUMNAS CENTRADAS */
+.registro > .registro-contenido {
+  grid-area: contenido !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr) !important;
+
+  align-items: center !important;
+  justify-items: center !important;
+
+  column-gap: clamp(40px, 6vw, 100px) !important;
+
+  width: 100% !important;
+  max-width: 1120px !important;
+
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* TEXTO IZQUIERDO */
+.registro .registro-contenido > .registro-copy {
+  grid-column: 1 !important;
+  justify-self: center !important;
+
+  width: 100% !important;
+  max-width: 400px !important;
+
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* FORMULARIO DERECHO */
+.registro .registro-contenido > .registro-form {
+  grid-column: 2 !important;
+  justify-self: center !important;
+
+  width: 100% !important;
+  max-width: 490px !important;
+
+  margin: 0 auto !important;
+}
+
+/* DATOS DE CONTACTO INFERIORES */
+.registro > .registro-datos {
+  grid-area: datos !important;
+
+  width: 100% !important;
+  max-width: 1000px !important;
+
+  margin: 55px auto 0 !important;
+  justify-content: center !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .registro {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 40px 20px !important;
+  }
+
+  .registro > .registro-header {
+    margin-bottom: 30px !important;
+  }
+
+  .registro > .registro-contenido {
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: 30px !important;
+  }
+
+  .registro .registro-contenido > .registro-copy,
+  .registro .registro-contenido > .registro-form {
+    grid-column: 1 !important;
+    width: 100% !important;
+    max-width: 490px !important;
+  }
+
+  .registro > .registro-datos {
+    margin-top: 35px !important;
+  }
+}
+
+/* ==========================================
+   SCALE UP - FORMULARIO TARJETA PREMIUM
+   SIN MODIFICAR LA POSICIÓN ORIGINAL
+========================================== */
+
+/* TARJETA PREMIUM SIN ALTERAR EL GRID */
+
+.registro .registro-contenido > .registro-form {
+  position: relative !important;
+  isolation: isolate;
+}
+
+/* Fondo visual de la tarjeta.
+   No agrega padding ni modifica la posición. */
+
+.registro .registro-contenido > .registro-form::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  z-index: -1;
+
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.07);
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   CAMPOS DEL FORMULARIO
+========================================== */
+
+.registro .registro-form input:not([type="checkbox"]):not([type="radio"]),
+.registro .registro-form select,
+.registro .registro-form textarea {
+  box-sizing: border-box;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  padding: 12px 15px !important;
+
+  border: 1px solid #d8dde5 !important;
+  border-radius: 11px !important;
+
+  background: #fafbfc !important;
+  color: #252525 !important;
+
+  font-family: inherit;
+  font-size: 15px !important;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* ALTURA UNIFORME */
+
+.registro .registro-form input:not([type="checkbox"]):not([type="radio"]),
+.registro .registro-form select {
+  height: 48px !important;
+  min-height: 48px;
+}
+
+/* ==========================================
+   ETIQUETAS
+========================================== */
+
+.registro .registro-form .registro-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.registro .registro-form .registro-campo label {
+  display: block;
+
+  margin: 0;
+
+  color: #252525;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   SELECTOR DE ENTRENAMIENTO
+========================================== */
+
+.registro .registro-form select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.registro .registro-form select option {
+  background: #ffffff;
+  color: #252525;
+}
+
+/* ==========================================
+   OBJETIVO QUE DESEA ALCANZAR
+========================================== */
+
+.registro .registro-form textarea {
+  height: 115px !important;
+  min-height: 115px !important;
+
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* ==========================================
+   PLACEHOLDERS
+========================================== */
+
+.registro .registro-form input::placeholder,
+.registro .registro-form textarea::placeholder {
+  color: #9199a6 !important;
+
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* ==========================================
+   EFECTO AL SELECCIONAR UN CAMPO
+========================================== */
+
+.registro .registro-form input:focus,
+.registro .registro-form select:focus,
+.registro .registro-form textarea:focus {
+  background: #ffffff !important;
+
+  border-color: #f4772b !important;
+
+  box-shadow:
+    0 0 0 3px rgba(244, 119, 43, 0.13) !important;
+}
+
+/* ==========================================
+   BOTÓN PREMIUM
+========================================== */
+
+.registro .registro-form button[type="submit"] {
+  min-height: 46px !important;
+  padding: 12px 28px !important;
+
+  border: 1px solid #f4772b !important;
+  border-radius: 12px !important;
+
+  background: #f4772b !important;
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+  font-weight: 800 !important;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(244, 119, 43, 0.17);
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.registro .registro-form button[type="submit"]:hover {
+  background: #e86620 !important;
+  border-color: #e86620 !important;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(244, 119, 43, 0.23);
+}
+
+.registro .registro-form button[type="submit"]:focus-visible {
+  outline: 3px solid #f4772b;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   MENSAJE DEL FORMULARIO
+========================================== */
+
+.registro .registro-form .form-message {
+  padding: 12px 14px;
+
+  border-left: 3px solid #f4772b;
+  border-radius: 8px;
+
+  background: #fff4ec;
+  color: #654129;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   RESPONSIVE - CELULARES
+========================================== */
+
+@media (max-width: 700px) {
+
+  .registro .registro-contenido > .registro-form::before {
+    inset: -14px -8px;
+    border-radius: 16px;
+  }
+
+  .registro .registro-form input:not([type="checkbox"]):not([type="radio"]),
+  .registro .registro-form select,
+  .registro .registro-form textarea {
+    font-size: 16px !important;
+  }
+
+  .registro .registro-form button[type="submit"] {
+    width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registro .registro-form input,
+  .registro .registro-form select,
+  .registro .registro-form textarea,
+  .registro .registro-form button[type="submit"] {
+    transition: none;
+  }
+}
+
+/* =====================================================
+   SOLO CONTACTOS DE REGISTRO — MISMA FILA
+   Requiere el bloque JSX con clases registro-contactos-fila.
+   No cambia formulario, encabezado ni otras secciones.
+===================================================== */
+.registro > .registro-contactos-fila {
+  grid-area: datos;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: clamp(14px, 4vw, 48px);
+  width: 100%;
+  max-width: 1000px;
+  min-width: 0;
+  margin: 55px auto 0;
+  padding: 0;
+}
+
+.registro > .registro-contactos-fila > .registro-contacto-enlace {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: #303030;
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.registro .registro-contacto-fila-icono {
+  display: block;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  margin: 0;
+  color: #f4772b;
+}
+
+@media (max-width: 700px) {
+  .registro > .registro-contactos-fila {
+    margin-top: 35px;
+    gap: clamp(8px, 2vw, 16px);
+  }
+  .registro > .registro-contactos-fila > .registro-contacto-enlace {
+    font-size: clamp(10px, 2.7vw, 13px);
+    gap: 5px;
+  }
+  .registro .registro-contacto-fila-icono {
+    flex-basis: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* CONTACTOS EN UNA SOLA FILA */
+
+.registro .registro-datos.registro-datos-enfila {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 40px !important;
+  width: 100%;
+  margin: 30px auto 0;
+}
+
+.registro .registro-datos-enfila > .registro-dato {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  gap: 10px !important;
+
+  width: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.registro .registro-datos-enfila .registro-icono {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+  color: #ff4b16;
+}
+
+.registro .registro-datos-enfila a {
+  display: inline-block;
+  margin: 0;
+  color: #303030;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .registro .registro-datos.registro-datos-enfila {
+    gap: 12px !important;
+  }
+
+  .registro .registro-datos-enfila > .registro-dato {
+    gap: 6px !important;
+  }
+
+  .registro .registro-datos-enfila .registro-icono {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .registro .registro-datos-enfila a {
+    font-size: clamp(10px, 2.7vw, 13px);
+  }
+}
+

@@ -1,8 +1,7 @@
-﻿
-export default function Button({
+﻿export default function Button({
   href = "#registro",
-  children = "Agenda tu llamada",
-  className = "",
+  children = "registro",
+  className = "butto",
 }) {
   return (
     <a className={`button ${className}`} href={href}>
@@ -10,5 +9,3 @@ export default function Button({
     </a>
   );
 }
-
-
