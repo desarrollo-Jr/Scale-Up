@@ -1,11 +1,11 @@
 /* ==============================
    NAVBAR PRINCIPAL
    Mismas clases que tu HTML/JSX actual.
-   Nuevo: estado .scrolled (fondo oscuro al bajar)
+   Estado .scrolled: fondo oscuro al bajar.
 ================================ */
 .navbar {
   --nav-brand: var(--brand, var(--orange, #ff4b16));
-    position: fixed;
+  position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -31,9 +31,7 @@
     min-height 0.3s ease;
 }
 
-/* El fondo oscuro está SIEMPRE activo, así logo y enlaces
-   se ven sobre cualquier sección (hero, fotos o fondo blanco).
-   Al bajar, la barra se compacta y se vuelve más sólida. */
+/* El fondo oscuro siempre está activo. */
 @supports (backdrop-filter: blur(1px)) {
   .navbar {
     backdrop-filter: blur(14px) saturate(140%);
@@ -226,7 +224,6 @@
     min-height: 72px;
   }
 
-  /* Con el menú abierto, la barra también lleva fondo */
   .navbar:has(.nav-links.is-open) {
     background-color: rgba(30, 30, 28, 0.97);
   }
@@ -356,7 +353,6 @@
 /* ==========================================
    NAVBAR - AJUSTES VISUALES
 ========================================== */
-
 @media (min-width: 901px) {
   .navbar {
     min-height: 80px;
@@ -365,7 +361,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 28px;
 
     background: rgba(18, 20, 19, 0.94);
@@ -387,17 +382,124 @@
 
   .nav-links a {
     position: relative;
-
     font-size: 15px;
     font-weight: 600;
     line-height: 1.3;
-
     color: #ffffff;
-
     transition: color 0.25s ease;
   }
 
   .nav-links a:hover {
     color: #ff6b3d;
+  }
+}
+
+/* ==========================================
+   BOTÓN VERDE DE WHATSAPP - OPCIÓN 3
+   Con ícono + texto en escritorio y menú móvil.
+========================================== */
+.navbar .social-links a.navbar-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: auto;
+  min-width: 145px;
+  height: 44px;
+  min-height: 44px;
+  padding: 10px 18px;
+
+  background-color: #25d366;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.navbar .social-links a.navbar-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #ffffff;
+  fill: currentColor;
+}
+
+.navbar .social-links a.navbar-whatsapp span {
+  display: inline;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.navbar .social-links a.navbar-whatsapp:hover {
+  background-color: #1ebe5d;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.navbar .social-links a.navbar-whatsapp:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* LAPTOPS Y TABLETS HORIZONTALES */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar .social-links a.navbar-whatsapp {
+    min-width: 125px;
+    padding: 9px 12px;
+    gap: 7px;
+    font-size: 13px;
+  }
+
+  .navbar .social-links a.navbar-whatsapp span {
+    font-size: 13px;
+  }
+}
+
+/* DENTRO DEL MENÚ DESPLEGABLE, HASTA 768PX */
+@media (max-width: 768px) {
+  .navbar .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navbar .social-links a.navbar-whatsapp {
+    width: auto;
+    min-width: 145px;
+    height: 44px;
+    padding: 10px 16px;
+  }
+
+  .navbar .social-links a.navbar-whatsapp span {
+    display: inline;
+  }
+}
+
+/* CELULARES MUY ESTRECHOS: BOTÓN EN FILA PROPIA */
+@media (max-width: 400px) {
+  .navbar .social-links a.navbar-whatsapp {
+    width: 100%;
+    min-width: 0;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar .social-links a.navbar-whatsapp {
+    transition: none;
   }
 }

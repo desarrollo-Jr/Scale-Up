@@ -1,0 +1,275 @@
+/* ==========================================
+   SCALE UP | ¿QUÉ VIVIRÁS EN ESTA EXPERIENCIA?
+   Pantalla completa, responsive y marca de agua
+========================================== */
+.experiencia-incluye,
+.experiencia-incluye *,
+.experiencia-incluye *::before,
+.experiencia-incluye *::after {
+  box-sizing: border-box;
+}
+
+/* SECCIÓN PRINCIPAL */
+.experiencia-incluye {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: clamp(42px, 5vw, 76px) 24px;
+
+  background-color: #f8f8f8;
+  color: #6c6c6c;
+  scroll-margin-top: 86px;
+}
+
+/* MARCA DE AGUA: imagen de public/images/fondo.png.
+   La ruta se inyecta desde ExperienciaIncluye.jsx
+   mediante la variable CSS --experiencia-bg. */
+.experiencia-incluye::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image: var(--experiencia-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85% auto;
+
+  opacity: 0.22;
+  filter: grayscale(35%) contrast(1.2);
+}
+
+/* CONTENIDO SIEMPRE ENCIMA DEL FONDO */
+.experiencia-incluye__contenedor {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 24px;
+
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+/* ENCABEZADO */
+.experiencia-incluye__encabezado {
+  width: 100%;
+  text-align: center;
+}
+
+.experiencia-incluye__encabezado h2 {
+  margin: 0;
+  color: #f36b2e;
+  font-size: clamp(29px, 3.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.experiencia-incluye__encabezado p {
+  max-width: 530px;
+  margin: 24px auto 0;
+  color: #696969;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* ACTIVIDADES: 2 COLUMNAS EN ESCRITORIO */
+.experiencia-incluye__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+
+  width: 100%;
+  gap: 28px clamp(48px, 8vw, 155px);
+  margin: 0;
+  padding: 0 clamp(0px, 1.8vw, 26px);
+}
+
+.experiencia-incluye__actividad {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+
+  color: #666;
+  font-size: clamp(16px, 1.35vw, 19px);
+  font-weight: 400;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+/* PUNTOS NARANJAS */
+.experiencia-incluye__actividad::before {
+  content: "";
+  display: block;
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: #ff4b16;
+}
+
+/* INVERSIÓN */
+.experiencia-incluye__inversion {
+  margin: 0;
+  color: #666;
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.experiencia-incluye__inversion p {
+  margin: 0;
+}
+
+/* BOTÓN */
+.experiencia-incluye__boton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 51px;
+  max-width: 100%;
+  margin: 0;
+  padding: 13px 26px;
+  border: 2px solid #f36b2e;
+  border-radius: 12px;
+
+  color: #fff;
+  background: #f36b2e;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.experiencia-incluye__boton:hover {
+  background: #df390b;
+  border-color: #df390b;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.experiencia-incluye__boton:focus-visible {
+  outline: 3px solid #151a19;
+  outline-offset: 4px;
+}
+
+/* LAPTOPS */
+@media (max-width: 1200px) {
+  .experiencia-incluye::before {
+    background-size: 95% auto;
+    opacity: 0.18;
+  }
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+  .experiencia-incluye::before {
+    background-size: 110% auto;
+    opacity: 0.14;
+  }
+}
+
+@media (max-width: 768px) {
+  .experiencia-incluye {
+    padding: 54px 22px;
+  }
+
+  .experiencia-incluye__contenedor {
+    gap: 32px;
+  }
+
+  .experiencia-incluye__lista {
+    gap: 24px 36px;
+  }
+
+  .experiencia-incluye__actividad {
+    font-size: 16px;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+  .experiencia-incluye {
+    padding: 56px 20px 64px;
+  }
+
+  .experiencia-incluye::before {
+    background-size: 145% auto;
+    background-position: center;
+    opacity: 0.10;
+  }
+
+  .experiencia-incluye__contenedor {
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .experiencia-incluye__encabezado h2 {
+    font-size: clamp(26px, 7.2vw, 34px);
+  }
+
+  .experiencia-incluye__encabezado p {
+    margin-top: 19px;
+    font-size: 15px;
+  }
+
+  .experiencia-incluye__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 450px;
+    padding: 0;
+  }
+
+  .experiencia-incluye__actividad {
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .experiencia-incluye__actividad::before {
+    flex-basis: 8px;
+    width: 8px;
+    height: 8px;
+    margin-top: 7px;
+  }
+
+  .experiencia-incluye__inversion {
+    font-size: 15px;
+  }
+
+  .experiencia-incluye__boton {
+    width: 100%;
+    max-width: 310px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experiencia-incluye__boton {
+    transition: none;
+  }
+}

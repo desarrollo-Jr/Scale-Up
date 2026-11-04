@@ -3,10 +3,10 @@ import Hero from "../components/home/Hero.jsx";
 import Pilares from "../components/home/Pilares.jsx";
 import Instructores from "../components/home/Instructores.jsx";
 import Carrusel from "../components/home/Carrusel.jsx";
-import Requisitos from "../components/home/Requisitos.jsx";
+import Preguntas from "../components/home/Preguntas.jsx";
 import Ubicacion from "../components/home/Ubicacion.jsx";
 import Registro from "../components/home/Registro.jsx";
-
+import Experiencia from "../components/home/Experiencia.jsx";
 
 
 export default function Home() {
@@ -16,8 +16,9 @@ export default function Home() {
       <Pilares />
       <Instructores />
       <Carrusel />
-      <Requisitos />
       <Ubicacion />
+      <Preguntas />
+      <Experiencia />
       <Registro />
     </>
   );

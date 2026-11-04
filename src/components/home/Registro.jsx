@@ -95,23 +95,22 @@ async function handleSubmit(event) {
         className="registro-header section-anchor"
         id="contacto"
       >
-        <h2>Ponte en contacto</h2>
-        <p>Contáctanos</p>
+        <h2>El siguiente paso comienza aquí.</h2>
+        
       </header>
 
       <div className="registro-contenido">
         <div className="registro-copy">
-          <h3>Queremos ayudarte</h3>
+          <h3>¿Te unes al primer capítulo?  </h3>
 
           <p className="registro-llamanos">
             ¡Llámanos!
           </p>
 
           <p className="registro-descripcion">
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.
+            Completa el siguiente formulario y recibe 
+            información para conocer
+             más sobre la experiencia y asegurar tu lugar.
           </p>
         </div>
 
@@ -121,7 +120,7 @@ async function handleSubmit(event) {
         >
           <div className="registro-campo">
             <label htmlFor="nombre">
-              Nombre Completo
+            
             </label>
           <input
             type="text"
@@ -129,14 +128,14 @@ async function handleSubmit(event) {
             name="nombre"
             value={form.nombre}
             onChange={handleChange}
-            placeholder="Nombre Completo..."
+            placeholder="¿Cómo te llamas?"
             aria-label="Nombre"
             required
           />
           </div>
           <div className="registro-campo">
             <label htmlFor="telefono">
-              Número de Teléfono
+              
             </label>
 
           <input
@@ -145,7 +144,7 @@ async function handleSubmit(event) {
             name="telefono"
             value={form.telefono}
             onChange={handleChange}
-            placeholder="Número de teléfono..."
+            placeholder="¿A qué número podemos contactarte?"
             aria-label="Número de teléfono"
             required
           />
@@ -153,7 +152,7 @@ async function handleSubmit(event) {
 
           <div className="registro-campo">
             <label htmlFor="entrenamiento">
-              Entrenamiento de interés
+              
             </label>
 
             <select
@@ -179,7 +178,7 @@ async function handleSubmit(event) {
 
           <div className="registro-campo">
             <label htmlFor="mensaje">
-              Objetivo que desea alcanzar
+              
             </label>
 
             <textarea
@@ -187,7 +186,7 @@ async function handleSubmit(event) {
               name="mensaje"
               value={form.mensaje}
               onChange={handleChange}
-              placeholder="Cuéntanos qué te gustaría lograr con este entrenamiento..."
+              placeholder="Objetivo que deseas alcanzar: Comparte brevemente qué te gustaría explorar o transformar."
               required
             />
           </div>

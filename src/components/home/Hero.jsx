@@ -32,10 +32,10 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-  <Button href="#registro">
-    ¡Agenda tu llamada!
-  </Button>
-</div>
+        <Button href="#registro">
+          ¡Agenda tu llamada!
+        </Button>
+      </div>
       </div>
     </section>
   );
